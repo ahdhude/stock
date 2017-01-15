@@ -17,12 +17,12 @@ Public Class Login
         Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
         con.Open()
         Dim dr As SqlClient.SqlDataReader
-        Dim cmd As New SqlClient.SqlCommand("select * from [user] where username = '" + textbox_name.Text + "' AND password = '" + passhash + "' ", con)
+        Dim cmd As New SqlClient.SqlCommand("select * from [user] where user_name = '" + textbox_name.Text + "' AND User_password = '" + passhash + "' ", con)
         dr = cmd.ExecuteReader
         If dr.Read Then
             MsgBox("you are logged in")
         Else
-            MsgBox("maan its false")
+            MsgBox("Username or Password Incorrect  ")
         End If
     End Sub
 
@@ -64,4 +64,14 @@ Public Class Login
         End If
 
     End Function 'VerifyMd5Hash
+
+
+
+    Private Sub textbox_pass_OnValueChanged(sender As Object, e As EventArgs) Handles textbox_pass.OnValueChanged
+        textbox_pass.isPassword = True
+    End Sub
+
+    Private Sub BunifuImageButton1_Click(sender As Object, e As EventArgs) Handles BunifuImageButton1.Click
+        Me.Close()
+    End Sub
 End Class
