@@ -62,7 +62,7 @@ Partial Class WelcomeForm
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel1.Location = New System.Drawing.Point(0, 38)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(43, 459)
+        Me.Panel1.Size = New System.Drawing.Size(43, 594)
         Me.Panel1.TabIndex = 0
         '
         'Panel4
@@ -74,7 +74,7 @@ Partial Class WelcomeForm
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 169)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(43, 290)
+        Me.Panel4.Size = New System.Drawing.Size(43, 425)
         Me.Panel4.TabIndex = 2
         '
         'Panel3
@@ -95,7 +95,7 @@ Partial Class WelcomeForm
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(795, 38)
+        Me.Panel2.Size = New System.Drawing.Size(979, 38)
         Me.Panel2.TabIndex = 1
         '
         'BunifuCustomLabel1
@@ -121,7 +121,7 @@ Partial Class WelcomeForm
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(43, 38)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(752, 459)
+        Me.Panel5.Size = New System.Drawing.Size(936, 594)
         Me.Panel5.TabIndex = 2
         '
         'Panel6
@@ -304,7 +304,7 @@ Partial Class WelcomeForm
         Me.BunifuImageButton2.Dock = System.Windows.Forms.DockStyle.Right
         Me.BunifuImageButton2.Image = Global.stock.My.Resources.Resources.Multiply_48px1
         Me.BunifuImageButton2.ImageActive = Nothing
-        Me.BunifuImageButton2.Location = New System.Drawing.Point(763, 0)
+        Me.BunifuImageButton2.Location = New System.Drawing.Point(947, 0)
         Me.BunifuImageButton2.Name = "BunifuImageButton2"
         Me.BunifuImageButton2.Size = New System.Drawing.Size(32, 38)
         Me.BunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -317,7 +317,7 @@ Partial Class WelcomeForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(212, Byte), Integer), CType(CType(231, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(795, 497)
+        Me.ClientSize = New System.Drawing.Size(979, 632)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)

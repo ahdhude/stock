@@ -5,12 +5,15 @@
     End Sub
 
     Private Sub button_PO_Click(sender As Object, e As EventArgs) Handles button_PO.Click
-        Dim f As New stock_out
+        Dim f As stock_out = New stock_out
+
         f.TopLevel = False
+        Panel5.AutoScroll = True
 
 
 
         Panel5.Controls.Add(f)
+        f.Show()
 
 
 
