@@ -87,7 +87,7 @@ Partial Public Class LBMSTOCKDataSet
     
     Private relationFK_products_PO_transaction As Global.System.Data.DataRelation
     
-    Private relationFK_Unit_Product As Global.System.Data.DataRelation
+    Private relationFK_Product_Unit As Global.System.Data.DataRelation
     
     Private relationFK_category_Product_category As Global.System.Data.DataRelation
     
@@ -695,7 +695,7 @@ Partial Public Class LBMSTOCKDataSet
         Me.relationFK_Office_inventory_Product = Me.Relations("FK_Office_inventory_Product")
         Me.relationFK__PO_transaction1 = Me.Relations("FK__PO_transaction1")
         Me.relationFK_products_PO_transaction = Me.Relations("FK_products_PO_transaction")
-        Me.relationFK_Unit_Product = Me.Relations("FK_Unit_Product")
+        Me.relationFK_Product_Unit = Me.Relations("FK_Product_Unit")
         Me.relationFK_category_Product_category = Me.Relations("FK_category_Product_category")
         Me.relationFK_Product_category = Me.Relations("FK_Product_category")
         Me.relationFK_Supplier_PurchaseOrder = Me.Relations("FK_Supplier_PurchaseOrder")
@@ -773,8 +773,8 @@ Partial Public Class LBMSTOCKDataSet
         Me.Relations.Add(Me.relationFK__PO_transaction1)
         Me.relationFK_products_PO_transaction = New Global.System.Data.DataRelation("FK_products_PO_transaction", New Global.System.Data.DataColumn() {Me.tableProduct.Product_idColumn}, New Global.System.Data.DataColumn() {Me.tablePO_transaction.Products_product_idColumn}, false)
         Me.Relations.Add(Me.relationFK_products_PO_transaction)
-        Me.relationFK_Unit_Product = New Global.System.Data.DataRelation("FK_Unit_Product", New Global.System.Data.DataColumn() {Me.tableProduct_unit.Unit_idColumn}, New Global.System.Data.DataColumn() {Me.tableProduct.Product_unit_idColumn}, false)
-        Me.Relations.Add(Me.relationFK_Unit_Product)
+        Me.relationFK_Product_Unit = New Global.System.Data.DataRelation("FK_Product_Unit", New Global.System.Data.DataColumn() {Me.tableProduct_unit.Unit_idColumn}, New Global.System.Data.DataColumn() {Me.tableProduct.UnitColumn}, false)
+        Me.Relations.Add(Me.relationFK_Product_Unit)
         Me.relationFK_category_Product_category = New Global.System.Data.DataRelation("FK_category_Product_category", New Global.System.Data.DataColumn() {Me.tableCategory.category_idColumn}, New Global.System.Data.DataColumn() {Me.tableProduct_category.Category_category_idColumn}, false)
         Me.Relations.Add(Me.relationFK_category_Product_category)
         Me.relationFK_Product_category = New Global.System.Data.DataRelation("FK_Product_category", New Global.System.Data.DataColumn() {Me.tableProduct.Product_idColumn}, New Global.System.Data.DataColumn() {Me.tableProduct_category.Product_product_idColumn}, false)
@@ -4701,7 +4701,9 @@ Partial Public Class LBMSTOCKDataSet
         
         Private columnProduct_description As Global.System.Data.DataColumn
         
-        Private columnProduct_unit_id As Global.System.Data.DataColumn
+        Private columnUnit As Global.System.Data.DataColumn
+        
+        Private columnProduct_name_dhi As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -4764,9 +4766,17 @@ Partial Public Class LBMSTOCKDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Product_unit_idColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property UnitColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnProduct_unit_id
+                Return Me.columnUnit
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Product_name_dhiColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnProduct_name_dhi
             End Get
         End Property
         
@@ -4807,11 +4817,11 @@ Partial Public Class LBMSTOCKDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddProductRow(ByVal Product_id As Integer, ByVal Product_name As String, ByVal Product_description As String, ByVal parentProduct_unitRowByFK_Unit_Product As Product_unitRow) As ProductRow
+        Public Overloads Function AddProductRow(ByVal Product_id As Integer, ByVal Product_name As String, ByVal Product_description As String, ByVal parentProduct_unitRowByFK_Product_Unit As Product_unitRow, ByVal Product_name_dhi As String) As ProductRow
             Dim rowProductRow As ProductRow = CType(Me.NewRow,ProductRow)
-            Dim columnValuesArray() As Object = New Object() {Product_id, Product_name, Product_description, Nothing}
-            If (Not (parentProduct_unitRowByFK_Unit_Product) Is Nothing) Then
-                columnValuesArray(3) = parentProduct_unitRowByFK_Unit_Product(0)
+            Dim columnValuesArray() As Object = New Object() {Product_id, Product_name, Product_description, Nothing, Product_name_dhi}
+            If (Not (parentProduct_unitRowByFK_Product_Unit) Is Nothing) Then
+                columnValuesArray(3) = parentProduct_unitRowByFK_Product_Unit(0)
             End If
             rowProductRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowProductRow)
@@ -4844,7 +4854,8 @@ Partial Public Class LBMSTOCKDataSet
             Me.columnProduct_id = MyBase.Columns("Product_id")
             Me.columnProduct_name = MyBase.Columns("Product_name")
             Me.columnProduct_description = MyBase.Columns("Product_description")
-            Me.columnProduct_unit_id = MyBase.Columns("Product_unit_id")
+            Me.columnUnit = MyBase.Columns("Unit")
+            Me.columnProduct_name_dhi = MyBase.Columns("Product_name_dhi")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4856,13 +4867,16 @@ Partial Public Class LBMSTOCKDataSet
             MyBase.Columns.Add(Me.columnProduct_name)
             Me.columnProduct_description = New Global.System.Data.DataColumn("Product_description", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnProduct_description)
-            Me.columnProduct_unit_id = New Global.System.Data.DataColumn("Product_unit_id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnProduct_unit_id)
+            Me.columnUnit = New Global.System.Data.DataColumn("Unit", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUnit)
+            Me.columnProduct_name_dhi = New Global.System.Data.DataColumn("Product_name_dhi", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnProduct_name_dhi)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnProduct_id}, true))
             Me.columnProduct_id.AllowDBNull = false
             Me.columnProduct_id.Unique = true
             Me.columnProduct_name.MaxLength = 50
             Me.columnProduct_description.MaxLength = 2147483647
+            Me.columnProduct_name_dhi.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8629,16 +8643,31 @@ Partial Public Class LBMSTOCKDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Product_unit_id() As Integer
+        Public Property Unit() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableProduct.Product_unit_idColumn),Integer)
+                    Return CType(Me(Me.tableProduct.UnitColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Product_unit_id' in table 'Product' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Unit' in table 'Product' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableProduct.Product_unit_idColumn) = value
+                Me(Me.tableProduct.UnitColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Product_name_dhi() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableProduct.Product_name_dhiColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Product_name_dhi' in table 'Product' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableProduct.Product_name_dhiColumn) = value
             End Set
         End Property
         
@@ -8646,10 +8675,10 @@ Partial Public Class LBMSTOCKDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Product_unitRow() As Product_unitRow
             Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Unit_Product")),Product_unitRow)
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Product_Unit")),Product_unitRow)
             End Get
             Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Unit_Product"))
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Product_Unit"))
             End Set
         End Property
         
@@ -8679,14 +8708,26 @@ Partial Public Class LBMSTOCKDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsProduct_unit_idNull() As Boolean
-            Return Me.IsNull(Me.tableProduct.Product_unit_idColumn)
+        Public Function IsUnitNull() As Boolean
+            Return Me.IsNull(Me.tableProduct.UnitColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetProduct_unit_idNull()
-            Me(Me.tableProduct.Product_unit_idColumn) = Global.System.Convert.DBNull
+        Public Sub SetUnitNull()
+            Me(Me.tableProduct.UnitColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsProduct_name_dhiNull() As Boolean
+            Return Me.IsNull(Me.tableProduct.Product_name_dhiColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetProduct_name_dhiNull()
+            Me(Me.tableProduct.Product_name_dhiColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8917,10 +8958,10 @@ Partial Public Class LBMSTOCKDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function GetProductRows() As ProductRow()
-            If (Me.Table.ChildRelations("FK_Unit_Product") Is Nothing) Then
+            If (Me.Table.ChildRelations("FK_Product_Unit") Is Nothing) Then
                 Return New ProductRow(-1) {}
             Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Unit_Product")),ProductRow())
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Product_Unit")),ProductRow())
             End If
         End Function
     End Class
@@ -15048,50 +15089,60 @@ Namespace LBMSTOCKDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Product_id", "Product_id")
             tableMapping.ColumnMappings.Add("Product_name", "Product_name")
             tableMapping.ColumnMappings.Add("Product_description", "Product_description")
-            tableMapping.ColumnMappings.Add("Product_unit_id", "Product_unit_id")
+            tableMapping.ColumnMappings.Add("Unit", "Unit")
+            tableMapping.ColumnMappings.Add("Product_name_dhi", "Product_name_dhi")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Product] WHERE (([Product_id] = @Original_Product_id) AND ((@I"& _ 
                 "sNull_Product_name = 1 AND [Product_name] IS NULL) OR ([Product_name] = @Origina"& _ 
-                "l_Product_name)) AND ((@IsNull_Product_unit_id = 1 AND [Product_unit_id] IS NULL"& _ 
-                ") OR ([Product_unit_id] = @Original_Product_unit_id)))"
+                "l_Product_name)) AND ((@IsNull_Unit = 1 AND [Unit] IS NULL) OR ([Unit] = @Origin"& _ 
+                "al_Unit)) AND ((@IsNull_Product_name_dhi = 1 AND [Product_name_dhi] IS NULL) OR "& _ 
+                "([Product_name_dhi] = @Original_Product_name_dhi)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Product_name", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_name", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Product_name", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_name", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Product_unit_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_unit_id", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Product_unit_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_unit_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Unit", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Unit", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Unit", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Unit", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Product_name_dhi", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_name_dhi", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Product_name_dhi", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_name_dhi", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Product] ([Product_id], [Product_name], [Product_description],"& _ 
-                " [Product_unit_id]) VALUES (@Product_id, @Product_name, @Product_description, @P"& _ 
-                "roduct_unit_id);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Product_id, Product_name, Product_description, Product_"& _ 
-                "unit_id FROM Product WHERE (Product_id = @Product_id)"
+                " [Unit], [Product_name_dhi]) VALUES (@Product_id, @Product_name, @Product_descri"& _ 
+                "ption, @Unit, @Product_name_dhi);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Product_id, Product_name, Product_desc"& _ 
+                "ription, Unit, Product_name_dhi FROM Product WHERE (Product_id = @Product_id)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Product_name", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Product_description", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Product_unit_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_unit_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Unit", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Unit", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Product_name_dhi", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_name_dhi", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Product] SET [Product_id] = @Product_id, [Product_name] = @Product_"& _ 
-                "name, [Product_description] = @Product_description, [Product_unit_id] = @Product"& _ 
-                "_unit_id WHERE (([Product_id] = @Original_Product_id) AND ((@IsNull_Product_name"& _ 
-                " = 1 AND [Product_name] IS NULL) OR ([Product_name] = @Original_Product_name)) A"& _ 
-                "ND ((@IsNull_Product_unit_id = 1 AND [Product_unit_id] IS NULL) OR ([Product_uni"& _ 
-                "t_id] = @Original_Product_unit_id)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Product_id, Product_name, Product_"& _ 
-                "description, Product_unit_id FROM Product WHERE (Product_id = @Product_id)"
+                "name, [Product_description] = @Product_description, [Unit] = @Unit, [Product_nam"& _ 
+                "e_dhi] = @Product_name_dhi WHERE (([Product_id] = @Original_Product_id) AND ((@I"& _ 
+                "sNull_Product_name = 1 AND [Product_name] IS NULL) OR ([Product_name] = @Origina"& _ 
+                "l_Product_name)) AND ((@IsNull_Unit = 1 AND [Unit] IS NULL) OR ([Unit] = @Origin"& _ 
+                "al_Unit)) AND ((@IsNull_Product_name_dhi = 1 AND [Product_name_dhi] IS NULL) OR "& _ 
+                "([Product_name_dhi] = @Original_Product_name_dhi)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Product_id, Product"& _ 
+                "_name, Product_description, Unit, Product_name_dhi FROM Product WHERE (Product_i"& _ 
+                "d = @Product_id)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Product_name", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Product_description", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Product_unit_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_unit_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Unit", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Unit", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Product_name_dhi", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_name_dhi", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Product_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Product_name", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_name", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Product_name", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_name", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Product_unit_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_unit_id", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Product_unit_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_unit_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Unit", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Unit", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Unit", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Unit", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Product_name_dhi", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_name_dhi", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Product_name_dhi", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Product_name_dhi", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15107,8 +15158,8 @@ Namespace LBMSTOCKDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT Product_id, Product_name, Product_description, Product_unit_id FROM dbo.Pr"& _ 
-                "oduct"
+            Me._commandCollection(0).CommandText = "SELECT Product_id, Product_name, Product_description, Unit, Product_name_dhi FROM"& _ 
+                " dbo.Product"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -15168,7 +15219,7 @@ Namespace LBMSTOCKDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_Product_id As Integer, ByVal Original_Product_name As String, ByVal Original_Product_unit_id As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_Product_id As Integer, ByVal Original_Product_name As String, ByVal Original_Unit As Global.System.Nullable(Of Integer), ByVal Original_Product_name_dhi As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Product_id,Integer)
             If (Original_Product_name Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -15177,12 +15228,19 @@ Namespace LBMSTOCKDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Product_name,String)
             End If
-            If (Original_Product_unit_id.HasValue = true) Then
+            If (Original_Unit.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Product_unit_id.Value,Integer)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Unit.Value,Integer)
             Else
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Product_name_dhi Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Product_name_dhi,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -15203,7 +15261,7 @@ Namespace LBMSTOCKDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Product_id As Integer, ByVal Product_name As String, ByVal Product_description As String, ByVal Product_unit_id As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Insert(ByVal Product_id As Integer, ByVal Product_name As String, ByVal Product_description As String, ByVal Unit As Global.System.Nullable(Of Integer), ByVal Product_name_dhi As String) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(Product_id,Integer)
             If (Product_name Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
@@ -15215,10 +15273,15 @@ Namespace LBMSTOCKDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = CType(Product_description,String)
             End If
-            If (Product_unit_id.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Product_unit_id.Value,Integer)
+            If (Unit.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Unit.Value,Integer)
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (Product_name_dhi Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(Product_name_dhi,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -15239,7 +15302,7 @@ Namespace LBMSTOCKDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Product_id As Integer, ByVal Product_name As String, ByVal Product_description As String, ByVal Product_unit_id As Global.System.Nullable(Of Integer), ByVal Original_Product_id As Integer, ByVal Original_Product_name As String, ByVal Original_Product_unit_id As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Update(ByVal Product_id As Integer, ByVal Product_name As String, ByVal Product_description As String, ByVal Unit As Global.System.Nullable(Of Integer), ByVal Product_name_dhi As String, ByVal Original_Product_id As Integer, ByVal Original_Product_name As String, ByVal Original_Unit As Global.System.Nullable(Of Integer), ByVal Original_Product_name_dhi As String) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Product_id,Integer)
             If (Product_name Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
@@ -15251,25 +15314,37 @@ Namespace LBMSTOCKDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Product_description,String)
             End If
-            If (Product_unit_id.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Product_unit_id.Value,Integer)
+            If (Unit.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Unit.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_Product_id,Integer)
-            If (Original_Product_name Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            If (Product_name_dhi Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Product_name,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Product_name_dhi,String)
             End If
-            If (Original_Product_unit_id.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_Product_unit_id.Value,Integer)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Product_id,Integer)
+            If (Original_Product_name Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Product_name,String)
+            End If
+            If (Original_Unit.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Unit.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Product_name_dhi Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Product_name_dhi,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -15290,8 +15365,8 @@ Namespace LBMSTOCKDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Product_name As String, ByVal Product_description As String, ByVal Product_unit_id As Global.System.Nullable(Of Integer), ByVal Original_Product_id As Integer, ByVal Original_Product_name As String, ByVal Original_Product_unit_id As Global.System.Nullable(Of Integer)) As Integer
-            Return Me.Update(Original_Product_id, Product_name, Product_description, Product_unit_id, Original_Product_id, Original_Product_name, Original_Product_unit_id)
+        Public Overloads Overridable Function Update(ByVal Product_name As String, ByVal Product_description As String, ByVal Unit As Global.System.Nullable(Of Integer), ByVal Product_name_dhi As String, ByVal Original_Product_id As Integer, ByVal Original_Product_name As String, ByVal Original_Unit As Global.System.Nullable(Of Integer), ByVal Original_Product_name_dhi As String) As Integer
+            Return Me.Update(Original_Product_id, Product_name, Product_description, Unit, Product_name_dhi, Original_Product_id, Original_Product_name, Original_Unit, Original_Product_name_dhi)
         End Function
     End Class
     

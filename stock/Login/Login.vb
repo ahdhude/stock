@@ -19,11 +19,17 @@ Public Class Login
         Dim dr As SqlClient.SqlDataReader
         Dim cmd As New SqlClient.SqlCommand("select * from [user] where user_name = '" + textbox_name.Text + "' AND User_password = '" + passhash + "' ", con)
         dr = cmd.ExecuteReader
+
+
         If dr.Read Then
-            MsgBox("you are logged in")
+            Me.Hide()
+            WelcomeForm.Show()
+
         Else
             MsgBox("Username or Password Incorrect  ")
         End If
+        con.Close()
+
     End Sub
 
 
