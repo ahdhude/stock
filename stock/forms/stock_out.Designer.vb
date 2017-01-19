@@ -22,13 +22,9 @@ Partial Class stock_out
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.LBMSTOCKDataSet = New stock.LBMSTOCKDataSet()
-        Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ProductTableAdapter = New stock.LBMSTOCKDataSetTableAdapters.ProductTableAdapter()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DataGrid1 = New ns1.BunifuCustomDataGrid()
         Me.Product = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Item_requested = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -39,55 +35,39 @@ Partial Class stock_out
         Me.textbox_details = New ns1.BunifuMaterialTextbox()
         Me.textbox_grf_num = New ns1.BunifuMaterialTextbox()
         Me.BunifuDatepicker1 = New ns1.BunifuDatepicker()
-        CType(Me.LBMSTOCKDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.UltraPanel1.ClientArea.SuspendLayout()
         Me.UltraPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'LBMSTOCKDataSet
-        '
-        Me.LBMSTOCKDataSet.DataSetName = "LBMSTOCKDataSet"
-        Me.LBMSTOCKDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ProductBindingSource
-        '
-        Me.ProductBindingSource.DataMember = "Product"
-        Me.ProductBindingSource.DataSource = Me.LBMSTOCKDataSet
-        '
-        'ProductTableAdapter
-        '
-        Me.ProductTableAdapter.ClearBeforeFill = True
-        '
         'DataGrid1
         '
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.DataGrid1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.DataGrid1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGrid1.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.DataGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical
         Me.DataGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.SeaGreen
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGrid1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGrid1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGrid1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Product, Me.Item_requested, Me.item_given})
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGrid1.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGrid1.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataGrid1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGrid1.DoubleBuffered = True
         Me.DataGrid1.EnableHeadersVisualStyles = False
@@ -103,15 +83,12 @@ Partial Class stock_out
         '
         'Product
         '
-        Me.Product.DataSource = Me.ProductBindingSource
-        Me.Product.DisplayMember = "Product_name"
         Me.Product.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox
         Me.Product.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Product.HeaderText = "Product Name"
         Me.Product.Name = "Product"
         Me.Product.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.Product.ToolTipText = "ތަކެތި"
-        Me.Product.ValueMember = "Product_id"
         '
         'Item_requested
         '
@@ -246,8 +223,6 @@ Partial Class stock_out
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "stock_out"
         Me.Text = "stock_out"
-        CType(Me.LBMSTOCKDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.UltraPanel1.ClientArea.ResumeLayout(False)
@@ -255,9 +230,8 @@ Partial Class stock_out
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents LBMSTOCKDataSet As LBMSTOCKDataSet
-    Friend WithEvents ProductBindingSource As BindingSource
-    Friend WithEvents ProductTableAdapter As LBMSTOCKDataSetTableAdapters.ProductTableAdapter
+
+
     Friend WithEvents DataGrid1 As ns1.BunifuCustomDataGrid
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btn_process As ns1.BunifuFlatButton
@@ -265,6 +239,8 @@ Partial Class stock_out
     Friend WithEvents textbox_grf_num As ns1.BunifuMaterialTextbox
     Friend WithEvents BunifuDatepicker1 As ns1.BunifuDatepicker
     Friend WithEvents UltraPanel1 As Infragistics.Win.Misc.UltraPanel
+
+
     Friend WithEvents Product As DataGridViewComboBoxColumn
     Friend WithEvents Item_requested As DataGridViewTextBoxColumn
     Friend WithEvents item_given As DataGridViewTextBoxColumn

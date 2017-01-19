@@ -93,11 +93,6 @@
     <Compile Include="forms\stock_out.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LBMSTOCKDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LBMSTOCKDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Login\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
@@ -146,17 +141,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="LBMSTOCKDataSet.xsc">
-      <DependentUpon>LBMSTOCKDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="LBMSTOCKDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>LBMSTOCKDataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="LBMSTOCKDataSet.xss">
-      <DependentUpon>LBMSTOCKDataSet.xsd</DependentUpon>
-    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
