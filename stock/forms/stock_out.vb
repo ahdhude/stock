@@ -35,15 +35,7 @@ Public Class stock_out
         con.Close()
 
 
-
-
-
-
-
-
-
-
-
+        Call loademployees()
 
 
 
@@ -167,6 +159,33 @@ Public Class stock_out
 
         Dim testdate As String = BunifuDatepicker1.Value.ToString("dd/MM/yyyy HH:mm tt")
         MessageBox.Show(testdate)
+
+    End Sub
+
+
+
+    Public Sub loademployees()
+        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
+
+        Dim cmd As New SqlClient.SqlCommand("select * from employee", con)
+        Dim adapter As New SqlDataAdapter()
+        Dim ds As New DataSet()
+
+        con.Open()
+        adapter.SelectCommand = cmd
+        adapter.Fill(ds)
+        adapter.Dispose()
+        cmd.Dispose()
+        con.Close()
+
+
+        dropdown_emp.DataSource = ds.Tables(0)
+        dropdown_emp.ValueMember = "employee_id"
+        dropdown_emp.DisplayMember = "employee_name"
+
+
+
+        con.Close()
 
     End Sub
 End Class

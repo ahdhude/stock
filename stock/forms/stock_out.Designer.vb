@@ -25,6 +25,18 @@ Partial Class stock_out
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
         Me.DataGrid1 = New ns1.BunifuCustomDataGrid()
         Me.Product = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Item_requested = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -35,10 +47,12 @@ Partial Class stock_out
         Me.textbox_details = New ns1.BunifuMaterialTextbox()
         Me.textbox_grf_num = New ns1.BunifuMaterialTextbox()
         Me.BunifuDatepicker1 = New ns1.BunifuDatepicker()
+        Me.dropdown_emp = New Infragistics.Win.UltraWinGrid.UltraCombo()
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.UltraPanel1.ClientArea.SuspendLayout()
         Me.UltraPanel1.SuspendLayout()
+        CType(Me.dropdown_emp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGrid1
@@ -211,11 +225,73 @@ Partial Class stock_out
         Me.BunifuDatepicker1.TabIndex = 5
         Me.BunifuDatepicker1.Value = New Date(2017, 1, 17, 18, 21, 20, 355)
         '
+        'dropdown_emp
+        '
+        Appearance1.BackColor = System.Drawing.SystemColors.Window
+        Appearance1.BorderColor = System.Drawing.SystemColors.InactiveCaption
+        Me.dropdown_emp.DisplayLayout.Appearance = Appearance1
+        Me.dropdown_emp.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.dropdown_emp.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
+        Appearance2.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Appearance2.BackColor2 = System.Drawing.SystemColors.ControlDark
+        Appearance2.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
+        Appearance2.BorderColor = System.Drawing.SystemColors.Window
+        Me.dropdown_emp.DisplayLayout.GroupByBox.Appearance = Appearance2
+        Appearance3.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.dropdown_emp.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance3
+        Me.dropdown_emp.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Appearance4.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Appearance4.BackColor2 = System.Drawing.SystemColors.Control
+        Appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
+        Appearance4.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.dropdown_emp.DisplayLayout.GroupByBox.PromptAppearance = Appearance4
+        Me.dropdown_emp.DisplayLayout.MaxColScrollRegions = 1
+        Me.dropdown_emp.DisplayLayout.MaxRowScrollRegions = 1
+        Appearance5.BackColor = System.Drawing.SystemColors.Window
+        Appearance5.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.dropdown_emp.DisplayLayout.Override.ActiveCellAppearance = Appearance5
+        Appearance6.BackColor = System.Drawing.SystemColors.Highlight
+        Appearance6.ForeColor = System.Drawing.SystemColors.HighlightText
+        Me.dropdown_emp.DisplayLayout.Override.ActiveRowAppearance = Appearance6
+        Me.dropdown_emp.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.dropdown_emp.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
+        Appearance7.BackColor = System.Drawing.SystemColors.Window
+        Me.dropdown_emp.DisplayLayout.Override.CardAreaAppearance = Appearance7
+        Appearance8.BorderColor = System.Drawing.Color.Silver
+        Appearance8.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
+        Me.dropdown_emp.DisplayLayout.Override.CellAppearance = Appearance8
+        Me.dropdown_emp.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
+        Me.dropdown_emp.DisplayLayout.Override.CellPadding = 0
+        Appearance9.BackColor = System.Drawing.SystemColors.Control
+        Appearance9.BackColor2 = System.Drawing.SystemColors.ControlDark
+        Appearance9.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
+        Appearance9.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
+        Appearance9.BorderColor = System.Drawing.SystemColors.Window
+        Me.dropdown_emp.DisplayLayout.Override.GroupByRowAppearance = Appearance9
+        Appearance10.TextHAlignAsString = "Left"
+        Me.dropdown_emp.DisplayLayout.Override.HeaderAppearance = Appearance10
+        Me.dropdown_emp.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
+        Me.dropdown_emp.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
+        Appearance11.BackColor = System.Drawing.SystemColors.Window
+        Appearance11.BorderColor = System.Drawing.Color.Silver
+        Me.dropdown_emp.DisplayLayout.Override.RowAppearance = Appearance11
+        Me.dropdown_emp.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Appearance12.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.dropdown_emp.DisplayLayout.Override.TemplateAddRowAppearance = Appearance12
+        Me.dropdown_emp.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
+        Me.dropdown_emp.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
+        Me.dropdown_emp.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
+        Me.dropdown_emp.Location = New System.Drawing.Point(513, 181)
+        Me.dropdown_emp.Name = "dropdown_emp"
+        Me.dropdown_emp.Size = New System.Drawing.Size(332, 22)
+        Me.dropdown_emp.TabIndex = 10
+        '
         'stock_out
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(936, 594)
+        Me.Controls.Add(Me.dropdown_emp)
         Me.Controls.Add(Me.textbox_grf_num)
         Me.Controls.Add(Me.BunifuDatepicker1)
         Me.Controls.Add(Me.textbox_details)
@@ -227,7 +303,9 @@ Partial Class stock_out
         Me.Panel1.ResumeLayout(False)
         Me.UltraPanel1.ClientArea.ResumeLayout(False)
         Me.UltraPanel1.ResumeLayout(False)
+        CType(Me.dropdown_emp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -244,4 +322,5 @@ Partial Class stock_out
     Friend WithEvents Product As DataGridViewComboBoxColumn
     Friend WithEvents Item_requested As DataGridViewTextBoxColumn
     Friend WithEvents item_given As DataGridViewTextBoxColumn
+    Friend WithEvents dropdown_emp As Infragistics.Win.UltraWinGrid.UltraCombo
 End Class
