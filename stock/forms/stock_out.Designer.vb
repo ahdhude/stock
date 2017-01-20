@@ -25,34 +25,33 @@ Partial Class stock_out
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
-        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(stock_out))
         Me.DataGrid1 = New ns1.BunifuCustomDataGrid()
         Me.Product = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Item_requested = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.item_given = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.UltraPanel1 = New Infragistics.Win.Misc.UltraPanel()
         Me.btn_process = New ns1.BunifuFlatButton()
         Me.textbox_details = New ns1.BunifuMaterialTextbox()
         Me.textbox_grf_num = New ns1.BunifuMaterialTextbox()
-        Me.BunifuDatepicker1 = New ns1.BunifuDatepicker()
-        Me.dropdown_emp = New Infragistics.Win.UltraWinGrid.UltraCombo()
+        Me.dropdown_emp = New Infragistics.Win.UltraWinEditors.UltraComboEditor()
+        Me.UltraDateTimeEditor1 = New Infragistics.Win.UltraWinEditors.UltraDateTimeEditor()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.BunifuCustomLabel1 = New ns1.BunifuCustomLabel()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.btn_upload = New ns1.BunifuFlatButton()
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
-        Me.UltraPanel1.ClientArea.SuspendLayout()
-        Me.UltraPanel1.SuspendLayout()
         CType(Me.dropdown_emp, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UltraDateTimeEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
+        Me.SplitContainer1.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGrid1
@@ -82,17 +81,17 @@ Partial Class stock_out
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGrid1.DefaultCellStyle = DataGridViewCellStyle3
-        Me.DataGrid1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGrid1.DoubleBuffered = True
         Me.DataGrid1.EnableHeadersVisualStyles = False
         Me.DataGrid1.HeaderBgColor = System.Drawing.Color.SeaGreen
         Me.DataGrid1.HeaderForeColor = System.Drawing.Color.Black
         Me.DataGrid1.Location = New System.Drawing.Point(0, 0)
+        Me.DataGrid1.Margin = New System.Windows.Forms.Padding(0)
         Me.DataGrid1.Name = "DataGrid1"
         Me.DataGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DataGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders
         Me.DataGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGrid1.Size = New System.Drawing.Size(916, 225)
+        Me.DataGrid1.Size = New System.Drawing.Size(936, 232)
         Me.DataGrid1.TabIndex = 3
         '
         'Product
@@ -116,29 +115,6 @@ Partial Class stock_out
         Me.item_given.Name = "item_given"
         Me.item_given.ToolTipText = "ނެގި"
         '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.UltraPanel1)
-        Me.Panel1.Controls.Add(Me.btn_process)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 278)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Padding = New System.Windows.Forms.Padding(10)
-        Me.Panel1.Size = New System.Drawing.Size(936, 316)
-        Me.Panel1.TabIndex = 4
-        '
-        'UltraPanel1
-        '
-        '
-        'UltraPanel1.ClientArea
-        '
-        Me.UltraPanel1.ClientArea.Controls.Add(Me.DataGrid1)
-        Me.UltraPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.UltraPanel1.Location = New System.Drawing.Point(10, 10)
-        Me.UltraPanel1.Name = "UltraPanel1"
-        Me.UltraPanel1.Size = New System.Drawing.Size(916, 225)
-        Me.UltraPanel1.TabIndex = 0
-        '
         'btn_process
         '
         Me.btn_process.Activecolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
@@ -148,6 +124,7 @@ Partial Class stock_out
         Me.btn_process.ButtonText = "Process"
         Me.btn_process.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_process.DisabledColor = System.Drawing.Color.Gray
+        Me.btn_process.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btn_process.Iconcolor = System.Drawing.Color.Transparent
         Me.btn_process.Iconimage = Nothing
         Me.btn_process.Iconimage_right = Nothing
@@ -160,13 +137,13 @@ Partial Class stock_out
         Me.btn_process.IconVisible = True
         Me.btn_process.IconZoom = 90.0R
         Me.btn_process.IsTab = False
-        Me.btn_process.Location = New System.Drawing.Point(759, 242)
+        Me.btn_process.Location = New System.Drawing.Point(0, 0)
         Me.btn_process.Name = "btn_process"
         Me.btn_process.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.btn_process.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
         Me.btn_process.OnHoverTextColor = System.Drawing.Color.White
         Me.btn_process.selected = False
-        Me.btn_process.Size = New System.Drawing.Size(137, 48)
+        Me.btn_process.Size = New System.Drawing.Size(936, 46)
         Me.btn_process.TabIndex = 7
         Me.btn_process.Text = "Process"
         Me.btn_process.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -176,7 +153,8 @@ Partial Class stock_out
         'textbox_details
         '
         Me.textbox_details.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.textbox_details.Font = New System.Drawing.Font("Century Gothic", 9.75!)
+        Me.textbox_details.Dock = System.Windows.Forms.DockStyle.Top
+        Me.textbox_details.Font = New System.Drawing.Font("Century Gothic", 11.25!)
         Me.textbox_details.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.textbox_details.HintForeColor = System.Drawing.Color.Empty
         Me.textbox_details.HintText = "Details"
@@ -184,17 +162,18 @@ Partial Class stock_out
         Me.textbox_details.LineFocusedColor = System.Drawing.Color.Blue
         Me.textbox_details.LineIdleColor = System.Drawing.Color.Gray
         Me.textbox_details.LineMouseHoverColor = System.Drawing.Color.Blue
-        Me.textbox_details.LineThickness = 3
-        Me.textbox_details.Location = New System.Drawing.Point(74, 210)
+        Me.textbox_details.LineThickness = 4
+        Me.textbox_details.Location = New System.Drawing.Point(50, 0)
         Me.textbox_details.Margin = New System.Windows.Forms.Padding(4)
         Me.textbox_details.Name = "textbox_details"
-        Me.textbox_details.Size = New System.Drawing.Size(771, 44)
+        Me.textbox_details.Size = New System.Drawing.Size(806, 44)
         Me.textbox_details.TabIndex = 9
         Me.textbox_details.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'textbox_grf_num
         '
         Me.textbox_grf_num.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.textbox_grf_num.Dock = System.Windows.Forms.DockStyle.Left
         Me.textbox_grf_num.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.textbox_grf_num.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.textbox_grf_num.HintForeColor = System.Drawing.Color.Empty
@@ -204,106 +183,171 @@ Partial Class stock_out
         Me.textbox_grf_num.LineIdleColor = System.Drawing.Color.Gray
         Me.textbox_grf_num.LineMouseHoverColor = System.Drawing.Color.Blue
         Me.textbox_grf_num.LineThickness = 4
-        Me.textbox_grf_num.Location = New System.Drawing.Point(74, 101)
+        Me.textbox_grf_num.Location = New System.Drawing.Point(55, 8)
         Me.textbox_grf_num.Margin = New System.Windows.Forms.Padding(5)
         Me.textbox_grf_num.Name = "textbox_grf_num"
-        Me.textbox_grf_num.Size = New System.Drawing.Size(382, 43)
+        Me.textbox_grf_num.Size = New System.Drawing.Size(390, 40)
         Me.textbox_grf_num.TabIndex = 6
         Me.textbox_grf_num.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
-        'BunifuDatepicker1
-        '
-        Me.BunifuDatepicker1.BackColor = System.Drawing.Color.SeaGreen
-        Me.BunifuDatepicker1.BorderRadius = 0
-        Me.BunifuDatepicker1.ForeColor = System.Drawing.Color.White
-        Me.BunifuDatepicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.BunifuDatepicker1.FormatCustom = Nothing
-        Me.BunifuDatepicker1.Location = New System.Drawing.Point(513, 101)
-        Me.BunifuDatepicker1.Name = "BunifuDatepicker1"
-        Me.BunifuDatepicker1.Padding = New System.Windows.Forms.Padding(1)
-        Me.BunifuDatepicker1.Size = New System.Drawing.Size(332, 43)
-        Me.BunifuDatepicker1.TabIndex = 5
-        Me.BunifuDatepicker1.Value = New Date(2017, 1, 17, 18, 21, 20, 355)
-        '
         'dropdown_emp
         '
-        Appearance1.BackColor = System.Drawing.SystemColors.Window
-        Appearance1.BorderColor = System.Drawing.SystemColors.InactiveCaption
-        Me.dropdown_emp.DisplayLayout.Appearance = Appearance1
-        Me.dropdown_emp.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Me.dropdown_emp.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
-        Appearance2.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Appearance2.BackColor2 = System.Drawing.SystemColors.ControlDark
-        Appearance2.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
-        Appearance2.BorderColor = System.Drawing.SystemColors.Window
-        Me.dropdown_emp.DisplayLayout.GroupByBox.Appearance = Appearance2
-        Appearance3.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.dropdown_emp.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance3
-        Me.dropdown_emp.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Appearance4.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Appearance4.BackColor2 = System.Drawing.SystemColors.Control
-        Appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
-        Appearance4.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.dropdown_emp.DisplayLayout.GroupByBox.PromptAppearance = Appearance4
-        Me.dropdown_emp.DisplayLayout.MaxColScrollRegions = 1
-        Me.dropdown_emp.DisplayLayout.MaxRowScrollRegions = 1
-        Appearance5.BackColor = System.Drawing.SystemColors.Window
-        Appearance5.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.dropdown_emp.DisplayLayout.Override.ActiveCellAppearance = Appearance5
-        Appearance6.BackColor = System.Drawing.SystemColors.Highlight
-        Appearance6.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.dropdown_emp.DisplayLayout.Override.ActiveRowAppearance = Appearance6
-        Me.dropdown_emp.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
-        Me.dropdown_emp.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
-        Appearance7.BackColor = System.Drawing.SystemColors.Window
-        Me.dropdown_emp.DisplayLayout.Override.CardAreaAppearance = Appearance7
-        Appearance8.BorderColor = System.Drawing.Color.Silver
-        Appearance8.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
-        Me.dropdown_emp.DisplayLayout.Override.CellAppearance = Appearance8
-        Me.dropdown_emp.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
-        Me.dropdown_emp.DisplayLayout.Override.CellPadding = 0
-        Appearance9.BackColor = System.Drawing.SystemColors.Control
-        Appearance9.BackColor2 = System.Drawing.SystemColors.ControlDark
-        Appearance9.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
-        Appearance9.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
-        Appearance9.BorderColor = System.Drawing.SystemColors.Window
-        Me.dropdown_emp.DisplayLayout.Override.GroupByRowAppearance = Appearance9
-        Appearance10.TextHAlignAsString = "Left"
-        Me.dropdown_emp.DisplayLayout.Override.HeaderAppearance = Appearance10
-        Me.dropdown_emp.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
-        Me.dropdown_emp.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
-        Appearance11.BackColor = System.Drawing.SystemColors.Window
-        Appearance11.BorderColor = System.Drawing.Color.Silver
-        Me.dropdown_emp.DisplayLayout.Override.RowAppearance = Appearance11
-        Me.dropdown_emp.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
-        Appearance12.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.dropdown_emp.DisplayLayout.Override.TemplateAddRowAppearance = Appearance12
-        Me.dropdown_emp.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
-        Me.dropdown_emp.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
-        Me.dropdown_emp.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
-        Me.dropdown_emp.Location = New System.Drawing.Point(513, 181)
+        Me.dropdown_emp.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
+        Me.dropdown_emp.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
+        Me.dropdown_emp.BorderStyle = Infragistics.Win.UIElementBorderStyle.Raised
+        Me.dropdown_emp.Dock = System.Windows.Forms.DockStyle.Left
+        Me.dropdown_emp.Font = New System.Drawing.Font("Century Gothic", 11.25!)
+        Me.dropdown_emp.Location = New System.Drawing.Point(518, 73)
+        Me.dropdown_emp.Margin = New System.Windows.Forms.Padding(3, 20, 3, 3)
         Me.dropdown_emp.Name = "dropdown_emp"
-        Me.dropdown_emp.Size = New System.Drawing.Size(332, 22)
+        Me.dropdown_emp.Size = New System.Drawing.Size(332, 27)
         Me.dropdown_emp.TabIndex = 10
+        Me.dropdown_emp.Text = "Reqested By"
+        '
+        'UltraDateTimeEditor1
+        '
+        Me.UltraDateTimeEditor1.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2013
+        Me.UltraDateTimeEditor1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.UltraDateTimeEditor1.Font = New System.Drawing.Font("Century Gothic", 11.25!)
+        Me.UltraDateTimeEditor1.FormatProvider = New System.Globalization.CultureInfo("en-GB")
+        Me.UltraDateTimeEditor1.Location = New System.Drawing.Point(518, 23)
+        Me.UltraDateTimeEditor1.Margin = New System.Windows.Forms.Padding(3, 20, 3, 3)
+        Me.UltraDateTimeEditor1.MaskDisplayMode = Infragistics.Win.UltraWinMaskedEdit.MaskMode.IncludeLiteralsWithPadding
+        Me.UltraDateTimeEditor1.MaskInput = "{LOC}dd/mm/yyyy"
+        Me.UltraDateTimeEditor1.Name = "UltraDateTimeEditor1"
+        Me.UltraDateTimeEditor1.Size = New System.Drawing.Size(332, 27)
+        Me.UltraDateTimeEditor1.TabIndex = 11
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.btn_process)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel1.Location = New System.Drawing.Point(0, 548)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(936, 46)
+        Me.Panel1.TabIndex = 13
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.DataGrid1)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(0, 316)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(936, 232)
+        Me.Panel2.TabIndex = 14
+        '
+        'SplitContainer1
+        '
+        Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 103)
+        Me.SplitContainer1.Name = "SplitContainer1"
+        Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer1.Panel1
+        '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.TableLayoutPanel1)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.textbox_details)
+        Me.SplitContainer1.Panel2.Padding = New System.Windows.Forms.Padding(50, 0, 80, 0)
+        Me.SplitContainer1.Size = New System.Drawing.Size(936, 213)
+        Me.SplitContainer1.SplitterDistance = 106
+        Me.SplitContainer1.TabIndex = 17
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.70881!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.29119!))
+        Me.TableLayoutPanel1.Controls.Add(Me.btn_upload, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.textbox_grf_num, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.UltraDateTimeEditor1, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.dropdown_emp, 1, 1)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.Padding = New System.Windows.Forms.Padding(50, 3, 3, 3)
+        Me.TableLayoutPanel1.RowCount = 2
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(936, 106)
+        Me.TableLayoutPanel1.TabIndex = 0
+        '
+        'BunifuCustomLabel1
+        '
+        Me.BunifuCustomLabel1.AutoSize = True
+        Me.BunifuCustomLabel1.Font = New System.Drawing.Font("Calibri", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(402, 23)
+        Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
+        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(106, 26)
+        Me.BunifuCustomLabel1.TabIndex = 18
+        Me.BunifuCustomLabel1.Text = "GRF FORM"
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'btn_upload
+        '
+        Me.btn_upload.Activecolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btn_upload.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btn_upload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btn_upload.BorderRadius = 0
+        Me.btn_upload.ButtonText = "UPLOAD"
+        Me.btn_upload.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_upload.DisabledColor = System.Drawing.Color.Gray
+        Me.btn_upload.Iconcolor = System.Drawing.Color.Transparent
+        Me.btn_upload.Iconimage = CType(resources.GetObject("btn_upload.Iconimage"), System.Drawing.Image)
+        Me.btn_upload.Iconimage_right = Nothing
+        Me.btn_upload.Iconimage_right_Selected = Nothing
+        Me.btn_upload.Iconimage_Selected = Nothing
+        Me.btn_upload.IconMarginLeft = 0
+        Me.btn_upload.IconMarginRight = 0
+        Me.btn_upload.IconRightVisible = True
+        Me.btn_upload.IconRightZoom = 0R
+        Me.btn_upload.IconVisible = True
+        Me.btn_upload.IconZoom = 90.0R
+        Me.btn_upload.IsTab = False
+        Me.btn_upload.Location = New System.Drawing.Point(300, 56)
+        Me.btn_upload.Margin = New System.Windows.Forms.Padding(250, 3, 3, 3)
+        Me.btn_upload.Name = "btn_upload"
+        Me.btn_upload.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
+        Me.btn_upload.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
+        Me.btn_upload.OnHoverTextColor = System.Drawing.Color.White
+        Me.btn_upload.selected = False
+        Me.btn_upload.Size = New System.Drawing.Size(148, 44)
+        Me.btn_upload.TabIndex = 21
+        Me.btn_upload.Text = "UPLOAD"
+        Me.btn_upload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_upload.Textcolor = System.Drawing.Color.White
+        Me.btn_upload.TextFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
         'stock_out
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(936, 594)
-        Me.Controls.Add(Me.dropdown_emp)
-        Me.Controls.Add(Me.textbox_grf_num)
-        Me.Controls.Add(Me.BunifuDatepicker1)
-        Me.Controls.Add(Me.textbox_details)
+        Me.Controls.Add(Me.BunifuCustomLabel1)
+        Me.Controls.Add(Me.SplitContainer1)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "stock_out"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "stock_out"
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.UltraPanel1.ClientArea.ResumeLayout(False)
-        Me.UltraPanel1.ResumeLayout(False)
         CType(Me.dropdown_emp, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UltraDateTimeEditor1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer1.ResumeLayout(False)
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -311,16 +355,21 @@ Partial Class stock_out
 
 
     Friend WithEvents DataGrid1 As ns1.BunifuCustomDataGrid
-    Friend WithEvents Panel1 As Panel
     Friend WithEvents btn_process As ns1.BunifuFlatButton
     Friend WithEvents textbox_details As ns1.BunifuMaterialTextbox
     Friend WithEvents textbox_grf_num As ns1.BunifuMaterialTextbox
-    Friend WithEvents BunifuDatepicker1 As ns1.BunifuDatepicker
-    Friend WithEvents UltraPanel1 As Infragistics.Win.Misc.UltraPanel
 
 
     Friend WithEvents Product As DataGridViewComboBoxColumn
     Friend WithEvents Item_requested As DataGridViewTextBoxColumn
     Friend WithEvents item_given As DataGridViewTextBoxColumn
-    Friend WithEvents dropdown_emp As Infragistics.Win.UltraWinGrid.UltraCombo
+    Friend WithEvents dropdown_emp As Infragistics.Win.UltraWinEditors.UltraComboEditor
+    Friend WithEvents UltraDateTimeEditor1 As Infragistics.Win.UltraWinEditors.UltraDateTimeEditor
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents SplitContainer1 As SplitContainer
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents BunifuCustomLabel1 As ns1.BunifuCustomLabel
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents btn_upload As ns1.BunifuFlatButton
 End Class

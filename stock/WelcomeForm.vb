@@ -14,6 +14,10 @@
 
         Panel5.Controls.Add(f)
         f.Show()
+        f.Parent = Panel5
+
+
+
 
 
 

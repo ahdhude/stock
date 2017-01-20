@@ -15,6 +15,7 @@ Public Class stock_out
 
 
 
+
         Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
         con.Open()
         Dim dr As SqlClient.SqlDataReader
@@ -154,13 +155,6 @@ Public Class stock_out
         DataGrid1.CurrentRow.Selected = True
     End Sub
 
-    Private Sub BunifuDatepicker1_onValueChanged(sender As Object, e As EventArgs) Handles BunifuDatepicker1.onValueChanged
-
-
-        Dim testdate As String = BunifuDatepicker1.Value.ToString("dd/MM/yyyy HH:mm tt")
-        MessageBox.Show(testdate)
-
-    End Sub
 
 
 
@@ -186,6 +180,45 @@ Public Class stock_out
 
 
         con.Close()
+
+    End Sub
+
+
+
+
+
+    Public Sub grf_validate()
+
+        If textbox_grf_num.Text = Nothing Then
+
+        End If
+
+
+
+    End Sub
+
+
+
+    Private Sub textbox_grf_num_Enter(sender As Object, e As EventArgs) Handles textbox_grf_num.Enter
+
+        If textbox_grf_num.Text = Nothing Then
+            textbox_grf_num.Text = "(FRM)-LDS1/138/" + Year(Date.Today).ToString + "/"
+
+        End If
+    End Sub
+
+    Private Sub textbox_grf_num_Leave(sender As Object, e As EventArgs) Handles textbox_grf_num.Leave
+        If textbox_grf_num.Text = "(FRM)-LDS1/138/" + Year(Date.Today).ToString + "/" Then
+            textbox_grf_num.Text = Nothing
+
+
+        End If
+    End Sub
+
+
+
+    Private Sub btn_upload_Click(sender As Object, e As EventArgs) Handles btn_upload.Click
+        OpenFileDialog1.ShowDialog()
 
     End Sub
 End Class
