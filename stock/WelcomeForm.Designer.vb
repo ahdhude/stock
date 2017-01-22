@@ -30,23 +30,20 @@ Partial Class WelcomeForm
         Me.BunifuFlatButton3 = New ns1.BunifuFlatButton()
         Me.BunifuFlatButton2 = New ns1.BunifuFlatButton()
         Me.button_PO = New ns1.BunifuFlatButton()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.BunifuImageButton1 = New ns1.BunifuImageButton()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.BunifuCustomLabel1 = New ns1.BunifuCustomLabel()
         Me.BunifuImageButton2 = New ns1.BunifuImageButton()
         Me.BunifuDragControl1 = New ns1.BunifuDragControl(Me.components)
         Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Panel1.SuspendLayout()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel4.SuspendLayout()
-        Me.Panel3.SuspendLayout()
-        Me.Panel6.SuspendLayout()
-        CType(Me.BunifuImageButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BunifuImageButton2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel5.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'BunifuElipse1
@@ -57,12 +54,10 @@ Partial Class WelcomeForm
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(144, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Panel4)
-        Me.Panel1.Controls.Add(Me.Panel3)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel1.Location = New System.Drawing.Point(0, 38)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(43, 594)
+        Me.Panel1.Size = New System.Drawing.Size(983, 55)
         Me.Panel1.TabIndex = 0
         '
         'Panel4
@@ -72,9 +67,9 @@ Partial Class WelcomeForm
         Me.Panel4.Controls.Add(Me.BunifuFlatButton2)
         Me.Panel4.Controls.Add(Me.button_PO)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel4.Location = New System.Drawing.Point(0, 169)
+        Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(43, 425)
+        Me.Panel4.Size = New System.Drawing.Size(45, 596)
         Me.Panel4.TabIndex = 2
         '
         'BunifuFlatButton4
@@ -105,7 +100,7 @@ Partial Class WelcomeForm
         Me.BunifuFlatButton4.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
         Me.BunifuFlatButton4.OnHoverTextColor = System.Drawing.Color.White
         Me.BunifuFlatButton4.selected = False
-        Me.BunifuFlatButton4.Size = New System.Drawing.Size(43, 48)
+        Me.BunifuFlatButton4.Size = New System.Drawing.Size(45, 48)
         Me.BunifuFlatButton4.TabIndex = 3
         Me.BunifuFlatButton4.Text = "                      Stock"
         Me.BunifuFlatButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -140,7 +135,7 @@ Partial Class WelcomeForm
         Me.BunifuFlatButton3.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
         Me.BunifuFlatButton3.OnHoverTextColor = System.Drawing.Color.White
         Me.BunifuFlatButton3.selected = False
-        Me.BunifuFlatButton3.Size = New System.Drawing.Size(43, 48)
+        Me.BunifuFlatButton3.Size = New System.Drawing.Size(45, 48)
         Me.BunifuFlatButton3.TabIndex = 2
         Me.BunifuFlatButton3.Text = "                      Stock"
         Me.BunifuFlatButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -175,7 +170,7 @@ Partial Class WelcomeForm
         Me.BunifuFlatButton2.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
         Me.BunifuFlatButton2.OnHoverTextColor = System.Drawing.Color.White
         Me.BunifuFlatButton2.selected = False
-        Me.BunifuFlatButton2.Size = New System.Drawing.Size(43, 48)
+        Me.BunifuFlatButton2.Size = New System.Drawing.Size(45, 48)
         Me.BunifuFlatButton2.TabIndex = 1
         Me.BunifuFlatButton2.Text = "                      Stock"
         Me.BunifuFlatButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -210,44 +205,12 @@ Partial Class WelcomeForm
         Me.button_PO.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
         Me.button_PO.OnHoverTextColor = System.Drawing.Color.White
         Me.button_PO.selected = False
-        Me.button_PO.Size = New System.Drawing.Size(43, 48)
+        Me.button_PO.Size = New System.Drawing.Size(45, 48)
         Me.button_PO.TabIndex = 0
         Me.button_PO.Text = "                      Purchase Orders"
         Me.button_PO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.button_PO.Textcolor = System.Drawing.Color.White
         Me.button_PO.TextFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.Panel6)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(0, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(43, 169)
-        Me.Panel3.TabIndex = 1
-        '
-        'Panel6
-        '
-        Me.Panel6.Controls.Add(Me.BunifuImageButton1)
-        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel6.Location = New System.Drawing.Point(0, 0)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(43, 33)
-        Me.Panel6.TabIndex = 1
-        '
-        'BunifuImageButton1
-        '
-        Me.BunifuImageButton1.BackColor = System.Drawing.Color.SeaGreen
-        Me.BunifuImageButton1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BunifuImageButton1.Image = Global.stock.My.Resources.Resources.Menu_48px
-        Me.BunifuImageButton1.ImageActive = Nothing
-        Me.BunifuImageButton1.Location = New System.Drawing.Point(11, 0)
-        Me.BunifuImageButton1.Name = "BunifuImageButton1"
-        Me.BunifuImageButton1.Size = New System.Drawing.Size(32, 33)
-        Me.BunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.BunifuImageButton1.TabIndex = 2
-        Me.BunifuImageButton1.TabStop = False
-        Me.BunifuImageButton1.Zoom = 10
         '
         'Panel2
         '
@@ -258,7 +221,7 @@ Partial Class WelcomeForm
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(979, 38)
+        Me.Panel2.Size = New System.Drawing.Size(983, 38)
         Me.Panel2.TabIndex = 1
         '
         'PictureBox1
@@ -289,7 +252,7 @@ Partial Class WelcomeForm
         Me.BunifuImageButton2.Dock = System.Windows.Forms.DockStyle.Right
         Me.BunifuImageButton2.Image = Global.stock.My.Resources.Resources.Multiply_48px1
         Me.BunifuImageButton2.ImageActive = Nothing
-        Me.BunifuImageButton2.Location = New System.Drawing.Point(947, 0)
+        Me.BunifuImageButton2.Location = New System.Drawing.Point(951, 0)
         Me.BunifuImageButton2.Name = "BunifuImageButton2"
         Me.BunifuImageButton2.Size = New System.Drawing.Size(32, 38)
         Me.BunifuImageButton2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -306,34 +269,53 @@ Partial Class WelcomeForm
         '
         'Panel5
         '
+        Me.Panel5.Controls.Add(Me.Panel6)
+        Me.Panel5.Controls.Add(Me.Panel3)
+        Me.Panel5.Controls.Add(Me.Panel1)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel5.Location = New System.Drawing.Point(43, 38)
+        Me.Panel5.Location = New System.Drawing.Point(0, 38)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(936, 594)
+        Me.Panel5.Size = New System.Drawing.Size(983, 651)
         Me.Panel5.TabIndex = 2
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.Panel4)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel3.Location = New System.Drawing.Point(0, 55)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(45, 596)
+        Me.Panel3.TabIndex = 3
+        '
+        'Panel6
+        '
+        Me.Panel6.AutoSize = True
+        Me.Panel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel6.Location = New System.Drawing.Point(45, 55)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(938, 596)
+        Me.Panel6.TabIndex = 4
         '
         'WelcomeForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(212, Byte), Integer), CType(CType(231, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(979, 632)
+        Me.ClientSize = New System.Drawing.Size(983, 689)
         Me.Controls.Add(Me.Panel5)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "WelcomeForm"
         Me.Text = "WelcomeForm"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        Me.Panel1.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
-        Me.Panel3.ResumeLayout(False)
-        Me.Panel6.ResumeLayout(False)
-        CType(Me.BunifuImageButton1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BunifuImageButton2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -341,7 +323,6 @@ Partial Class WelcomeForm
     Friend WithEvents BunifuElipse1 As ns1.BunifuElipse
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents Panel3 As Panel
     Friend WithEvents BunifuImageButton2 As ns1.BunifuImageButton
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents BunifuCustomLabel1 As ns1.BunifuCustomLabel
@@ -352,6 +333,6 @@ Partial Class WelcomeForm
     Friend WithEvents BunifuFlatButton2 As ns1.BunifuFlatButton
     Friend WithEvents button_PO As ns1.BunifuFlatButton
     Friend WithEvents Panel5 As Panel
+    Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel6 As Panel
-    Friend WithEvents BunifuImageButton1 As ns1.BunifuImageButton
 End Class

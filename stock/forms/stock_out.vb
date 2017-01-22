@@ -1,15 +1,23 @@
 ﻿Imports System.Threading.Thread
 Imports System.Globalization
 Imports System.Threading
+Imports System.IO
+
 Imports System.Data.SqlClient
 
 Public Class stock_out
+
+
+
+    Dim gemscode As String = "LDSX"
+    Dim req_user As String
 
     Dim x As Integer = 0
 
 
 
     Private Sub stock_out_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        upload_path.Hide()
 
 
 
@@ -66,6 +74,7 @@ Public Class stock_out
     End Sub
 
     Private Sub textbox_details_Enter(sender As Object, e As EventArgs) Handles textbox_details.Enter
+
 
         'change language direction to right to left 
 
@@ -199,26 +208,97 @@ Public Class stock_out
 
 
 
-    Private Sub textbox_grf_num_Enter(sender As Object, e As EventArgs) Handles textbox_grf_num.Enter
 
-        If textbox_grf_num.Text = Nothing Then
-            textbox_grf_num.Text = "(FRM)-LDS1/138/" + Year(Date.Today).ToString + "/"
 
+
+
+
+
+    Private Sub btn_upload_Click(sender As Object, e As EventArgs) Handles btn_upload.Click
+
+
+
+
+
+
+        upload_path.Text = Nothing
+        OpenFileDialog1.ShowDialog()
+        Dim file_path As String
+        file_path = OpenFileDialog1.FileName
+        file_path = Path.GetFileName(file_path)
+        upload_path.Text = file_path
+        upload_path.Show()
+
+
+
+    End Sub
+
+
+
+
+
+    'GET GEMS CODE FROM DATBASE BASED ON USER SELECTED
+    Public Sub get_gems_Code()
+
+
+        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
+        con.Open()
+        Dim dr As SqlClient.SqlDataReader
+        Dim cmd As New SqlClient.SqlCommand("SELECT Unit.Gems_grf_code FROM Unit INNER JOIN Employee ON Unit.Unit_id = Employee.Unit_Unit_id WHERE (Employee.Employee_name = '" + dropdown_emp.Text + "')", con)
+
+        dr = cmd.ExecuteReader
+
+        While dr.Read
+            gemscode = dr.Item(0).ToString
+            gemscode.Trim()
+
+
+        End While
+
+        con.Close()
+
+
+    End Sub
+
+    Private Sub dropdown_emp_ValueChanged(sender As Object, e As EventArgs) Handles dropdown_emp.ValueChanged
+
+        If dropdown_emp.Text = "Requested By" Then
+        Else
+            Call get_gems_Code()
+
+            textbox_grf_num.Text = "(FRM)-" + gemscode + "/138/" + Year(Date.Today).ToString + "/"
         End If
+
+
+
+
+
+
+
+
     End Sub
 
     Private Sub textbox_grf_num_Leave(sender As Object, e As EventArgs) Handles textbox_grf_num.Leave
         If textbox_grf_num.Text = "(FRM)-LDS1/138/" + Year(Date.Today).ToString + "/" Then
+
+
+            textbox_grf_num.Text = Nothing
+        ElseIf textbox_grf_num.Text = "(FRM)-LDS2/138/" + Year(Date.Today).ToString + "/" Then
+
             textbox_grf_num.Text = Nothing
 
 
         End If
     End Sub
 
+    Private Sub lable_scanner_Click(sender As Object, e As EventArgs) Handles lable_scanner.Click
+        Dim f As Scan_form = New Scan_form
 
 
-    Private Sub btn_upload_Click(sender As Object, e As EventArgs) Handles btn_upload.Click
-        OpenFileDialog1.ShowDialog()
+        f.Show()
+
 
     End Sub
+
+
 End Class

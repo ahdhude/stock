@@ -8,13 +8,13 @@
         Dim f As stock_out = New stock_out
 
         f.TopLevel = False
-        Panel5.AutoScroll = True
+        Panel6.AutoScroll = True
 
 
 
         Panel5.Controls.Add(f)
         f.Show()
-        f.Parent = Panel5
+        f.Parent = Panel6
 
 
 

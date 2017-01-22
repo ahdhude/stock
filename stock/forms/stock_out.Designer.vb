@@ -22,6 +22,7 @@ Partial Class stock_out
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -37,21 +38,31 @@ Partial Class stock_out
         Me.UltraDateTimeEditor1 = New Infragistics.Win.UltraWinEditors.UltraDateTimeEditor()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.BunifuCustomLabel1 = New ns1.BunifuCustomLabel()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.lable_scanner = New MetroFramework.Controls.MetroLabel()
+        Me.upload_path = New System.Windows.Forms.Label()
         Me.btn_upload = New ns1.BunifuFlatButton()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.Twain321 = New Saraff.Twain.Twain32(Me.components)
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dropdown_emp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UltraDateTimeEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
-        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer1.Panel1.SuspendLayout()
-        Me.SplitContainer1.Panel2.SuspendLayout()
-        Me.SplitContainer1.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        Me.Panel7.SuspendLayout()
+        Me.Panel6.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        Me.Panel9.SuspendLayout()
+        Me.Panel8.SuspendLayout()
         Me.SuspendLayout()
         '
         'DataGrid1
@@ -153,7 +164,6 @@ Partial Class stock_out
         'textbox_details
         '
         Me.textbox_details.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.textbox_details.Dock = System.Windows.Forms.DockStyle.Top
         Me.textbox_details.Font = New System.Drawing.Font("Century Gothic", 11.25!)
         Me.textbox_details.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.textbox_details.HintForeColor = System.Drawing.Color.Empty
@@ -163,10 +173,10 @@ Partial Class stock_out
         Me.textbox_details.LineIdleColor = System.Drawing.Color.Gray
         Me.textbox_details.LineMouseHoverColor = System.Drawing.Color.Blue
         Me.textbox_details.LineThickness = 4
-        Me.textbox_details.Location = New System.Drawing.Point(50, 0)
+        Me.textbox_details.Location = New System.Drawing.Point(50, 26)
         Me.textbox_details.Margin = New System.Windows.Forms.Padding(4)
         Me.textbox_details.Name = "textbox_details"
-        Me.textbox_details.Size = New System.Drawing.Size(806, 44)
+        Me.textbox_details.Size = New System.Drawing.Size(826, 44)
         Me.textbox_details.TabIndex = 9
         Me.textbox_details.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
@@ -183,10 +193,11 @@ Partial Class stock_out
         Me.textbox_grf_num.LineIdleColor = System.Drawing.Color.Gray
         Me.textbox_grf_num.LineMouseHoverColor = System.Drawing.Color.Blue
         Me.textbox_grf_num.LineThickness = 4
-        Me.textbox_grf_num.Location = New System.Drawing.Point(55, 8)
+        Me.textbox_grf_num.Location = New System.Drawing.Point(0, 0)
         Me.textbox_grf_num.Margin = New System.Windows.Forms.Padding(5)
         Me.textbox_grf_num.Name = "textbox_grf_num"
-        Me.textbox_grf_num.Size = New System.Drawing.Size(390, 40)
+        Me.textbox_grf_num.Padding = New System.Windows.Forms.Padding(50, 0, 0, 15)
+        Me.textbox_grf_num.Size = New System.Drawing.Size(382, 59)
         Me.textbox_grf_num.TabIndex = 6
         Me.textbox_grf_num.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
@@ -197,12 +208,12 @@ Partial Class stock_out
         Me.dropdown_emp.BorderStyle = Infragistics.Win.UIElementBorderStyle.Raised
         Me.dropdown_emp.Dock = System.Windows.Forms.DockStyle.Left
         Me.dropdown_emp.Font = New System.Drawing.Font("Century Gothic", 11.25!)
-        Me.dropdown_emp.Location = New System.Drawing.Point(518, 73)
+        Me.dropdown_emp.Location = New System.Drawing.Point(50, 15)
         Me.dropdown_emp.Margin = New System.Windows.Forms.Padding(3, 20, 3, 3)
         Me.dropdown_emp.Name = "dropdown_emp"
         Me.dropdown_emp.Size = New System.Drawing.Size(332, 27)
         Me.dropdown_emp.TabIndex = 10
-        Me.dropdown_emp.Text = "Reqested By"
+        Me.dropdown_emp.Text = "Requested By"
         '
         'UltraDateTimeEditor1
         '
@@ -210,7 +221,7 @@ Partial Class stock_out
         Me.UltraDateTimeEditor1.Dock = System.Windows.Forms.DockStyle.Left
         Me.UltraDateTimeEditor1.Font = New System.Drawing.Font("Century Gothic", 11.25!)
         Me.UltraDateTimeEditor1.FormatProvider = New System.Globalization.CultureInfo("en-GB")
-        Me.UltraDateTimeEditor1.Location = New System.Drawing.Point(518, 23)
+        Me.UltraDateTimeEditor1.Location = New System.Drawing.Point(50, 15)
         Me.UltraDateTimeEditor1.Margin = New System.Windows.Forms.Padding(3, 20, 3, 3)
         Me.UltraDateTimeEditor1.MaskDisplayMode = Infragistics.Win.UltraWinMaskedEdit.MaskMode.IncludeLiteralsWithPadding
         Me.UltraDateTimeEditor1.MaskInput = "{LOC}dd/mm/yyyy"
@@ -236,44 +247,6 @@ Partial Class stock_out
         Me.Panel2.Size = New System.Drawing.Size(936, 232)
         Me.Panel2.TabIndex = 14
         '
-        'SplitContainer1
-        '
-        Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.SplitContainer1.Location = New System.Drawing.Point(0, 103)
-        Me.SplitContainer1.Name = "SplitContainer1"
-        Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
-        '
-        'SplitContainer1.Panel1
-        '
-        Me.SplitContainer1.Panel1.Controls.Add(Me.TableLayoutPanel1)
-        '
-        'SplitContainer1.Panel2
-        '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.textbox_details)
-        Me.SplitContainer1.Panel2.Padding = New System.Windows.Forms.Padding(50, 0, 80, 0)
-        Me.SplitContainer1.Size = New System.Drawing.Size(936, 213)
-        Me.SplitContainer1.SplitterDistance = 106
-        Me.SplitContainer1.TabIndex = 17
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.70881!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.29119!))
-        Me.TableLayoutPanel1.Controls.Add(Me.btn_upload, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.textbox_grf_num, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.UltraDateTimeEditor1, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.dropdown_emp, 1, 1)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.Padding = New System.Windows.Forms.Padding(50, 3, 3, 3)
-        Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(936, 106)
-        Me.TableLayoutPanel1.TabIndex = 0
-        '
         'BunifuCustomLabel1
         '
         Me.BunifuCustomLabel1.AutoSize = True
@@ -288,6 +261,60 @@ Partial Class stock_out
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.textbox_details)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel3.Location = New System.Drawing.Point(0, 216)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(936, 100)
+        Me.Panel3.TabIndex = 22
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.Panel7)
+        Me.Panel4.Controls.Add(Me.Panel6)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel4.Location = New System.Drawing.Point(0, 157)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(936, 59)
+        Me.Panel4.TabIndex = 23
+        '
+        'Panel7
+        '
+        Me.Panel7.Controls.Add(Me.lable_scanner)
+        Me.Panel7.Controls.Add(Me.upload_path)
+        Me.Panel7.Controls.Add(Me.btn_upload)
+        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel7.Location = New System.Drawing.Point(494, 0)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Padding = New System.Windows.Forms.Padding(50, 0, 0, 0)
+        Me.Panel7.Size = New System.Drawing.Size(442, 59)
+        Me.Panel7.TabIndex = 1
+        '
+        'lable_scanner
+        '
+        Me.lable_scanner.AutoSize = True
+        Me.lable_scanner.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lable_scanner.Location = New System.Drawing.Point(362, 40)
+        Me.lable_scanner.Name = "lable_scanner"
+        Me.lable_scanner.Size = New System.Drawing.Size(80, 19)
+        Me.lable_scanner.TabIndex = 23
+        Me.lable_scanner.Text = "Use Scanner"
+        '
+        'upload_path
+        '
+        Me.upload_path.AutoSize = True
+        Me.upload_path.Dock = System.Windows.Forms.DockStyle.Top
+        Me.upload_path.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.upload_path.Location = New System.Drawing.Point(179, 0)
+        Me.upload_path.Name = "upload_path"
+        Me.upload_path.Padding = New System.Windows.Forms.Padding(10, 25, 0, 0)
+        Me.upload_path.Size = New System.Drawing.Size(62, 44)
+        Me.upload_path.TabIndex = 22
+        Me.upload_path.Text = "Label1"
+        Me.upload_path.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'btn_upload
         '
         Me.btn_upload.Activecolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
@@ -297,6 +324,7 @@ Partial Class stock_out
         Me.btn_upload.ButtonText = "UPLOAD"
         Me.btn_upload.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_upload.DisabledColor = System.Drawing.Color.Gray
+        Me.btn_upload.Dock = System.Windows.Forms.DockStyle.Left
         Me.btn_upload.Iconcolor = System.Drawing.Color.Transparent
         Me.btn_upload.Iconimage = CType(resources.GetObject("btn_upload.Iconimage"), System.Drawing.Image)
         Me.btn_upload.Iconimage_right = Nothing
@@ -309,19 +337,63 @@ Partial Class stock_out
         Me.btn_upload.IconVisible = True
         Me.btn_upload.IconZoom = 90.0R
         Me.btn_upload.IsTab = False
-        Me.btn_upload.Location = New System.Drawing.Point(300, 56)
+        Me.btn_upload.Location = New System.Drawing.Point(50, 0)
         Me.btn_upload.Margin = New System.Windows.Forms.Padding(250, 3, 3, 3)
         Me.btn_upload.Name = "btn_upload"
         Me.btn_upload.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.btn_upload.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
         Me.btn_upload.OnHoverTextColor = System.Drawing.Color.White
         Me.btn_upload.selected = False
-        Me.btn_upload.Size = New System.Drawing.Size(148, 44)
+        Me.btn_upload.Size = New System.Drawing.Size(129, 59)
         Me.btn_upload.TabIndex = 21
         Me.btn_upload.Text = "UPLOAD"
         Me.btn_upload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_upload.Textcolor = System.Drawing.Color.White
         Me.btn_upload.TextFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        '
+        'Panel6
+        '
+        Me.Panel6.Controls.Add(Me.textbox_grf_num)
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel6.Location = New System.Drawing.Point(0, 0)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(494, 59)
+        Me.Panel6.TabIndex = 0
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.Panel9)
+        Me.Panel5.Controls.Add(Me.Panel8)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel5.Location = New System.Drawing.Point(0, 93)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(936, 64)
+        Me.Panel5.TabIndex = 24
+        '
+        'Panel9
+        '
+        Me.Panel9.Controls.Add(Me.UltraDateTimeEditor1)
+        Me.Panel9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel9.Location = New System.Drawing.Point(494, 0)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Padding = New System.Windows.Forms.Padding(50, 15, 0, 0)
+        Me.Panel9.Size = New System.Drawing.Size(442, 64)
+        Me.Panel9.TabIndex = 1
+        '
+        'Panel8
+        '
+        Me.Panel8.Controls.Add(Me.dropdown_emp)
+        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel8.Location = New System.Drawing.Point(0, 0)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Padding = New System.Windows.Forms.Padding(50, 15, 0, 0)
+        Me.Panel8.Size = New System.Drawing.Size(494, 64)
+        Me.Panel8.TabIndex = 0
+        '
+        'Twain321
+        '
+        Me.Twain321.AppProductName = "Saraff.Twain.NET"
+        Me.Twain321.Parent = Nothing
         '
         'stock_out
         '
@@ -329,8 +401,10 @@ Partial Class stock_out
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(936, 594)
+        Me.Controls.Add(Me.Panel5)
+        Me.Controls.Add(Me.Panel4)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.BunifuCustomLabel1)
-        Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -342,12 +416,16 @@ Partial Class stock_out
         CType(Me.UltraDateTimeEditor1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
-        Me.SplitContainer1.Panel1.ResumeLayout(False)
-        Me.SplitContainer1.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer1.ResumeLayout(False)
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel7.ResumeLayout(False)
+        Me.Panel7.PerformLayout()
+        Me.Panel6.ResumeLayout(False)
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel9.ResumeLayout(False)
+        Me.Panel9.PerformLayout()
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -365,11 +443,19 @@ Partial Class stock_out
     Friend WithEvents item_given As DataGridViewTextBoxColumn
     Friend WithEvents dropdown_emp As Infragistics.Win.UltraWinEditors.UltraComboEditor
     Friend WithEvents UltraDateTimeEditor1 As Infragistics.Win.UltraWinEditors.UltraDateTimeEditor
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents SplitContainer1 As SplitContainer
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents BunifuCustomLabel1 As ns1.BunifuCustomLabel
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents btn_upload As ns1.BunifuFlatButton
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Panel7 As Panel
+    Friend WithEvents Panel6 As Panel
+    Friend WithEvents Panel5 As Panel
+    Friend WithEvents Panel9 As Panel
+    Friend WithEvents Panel8 As Panel
+    Friend WithEvents upload_path As Label
+    Friend WithEvents lable_scanner As MetroFramework.Controls.MetroLabel
+    Friend WithEvents Twain321 As Saraff.Twain.Twain32
 End Class

@@ -72,6 +72,9 @@
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Saraff.Twain">
+      <HintPath>..\..\..\..\Desktop\Saraff.Twain.VbSamples\Saraff.Twain.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -100,11 +103,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="forms\Scan_form.Designer.vb">
+      <DependentUpon>Scan_form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Scan_form.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\stock_out.Designer.vb">
       <DependentUpon>stock_out.vb</DependentUpon>
     </Compile>
     <Compile Include="forms\stock_out.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LBMSTOCKDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LBMSTOCKDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Login\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
@@ -136,6 +150,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="forms\Scan_form.resx">
+      <DependentUpon>Scan_form.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\stock_out.resx">
       <DependentUpon>stock_out.vb</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +171,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="LBMSTOCKDataSet.xsc">
+      <DependentUpon>LBMSTOCKDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LBMSTOCKDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LBMSTOCKDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LBMSTOCKDataSet.xss">
+      <DependentUpon>LBMSTOCKDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
