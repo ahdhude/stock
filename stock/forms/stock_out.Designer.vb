@@ -26,7 +26,6 @@ Partial Class stock_out
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(stock_out))
         Me.DataGrid1 = New ns1.BunifuCustomDataGrid()
         Me.Product = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.Item_requested = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -43,8 +42,8 @@ Partial Class stock_out
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.upload_path = New System.Windows.Forms.LinkLabel()
         Me.lable_scanner = New MetroFramework.Controls.MetroLabel()
-        Me.upload_path = New System.Windows.Forms.Label()
         Me.btn_upload = New ns1.BunifuFlatButton()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
@@ -217,6 +216,7 @@ Partial Class stock_out
         '
         'UltraDateTimeEditor1
         '
+        Me.UltraDateTimeEditor1.DateTime = New Date(2017, 1, 22, 0, 0, 0, 0)
         Me.UltraDateTimeEditor1.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2013
         Me.UltraDateTimeEditor1.Dock = System.Windows.Forms.DockStyle.Left
         Me.UltraDateTimeEditor1.Font = New System.Drawing.Font("Century Gothic", 11.25!)
@@ -228,6 +228,7 @@ Partial Class stock_out
         Me.UltraDateTimeEditor1.Name = "UltraDateTimeEditor1"
         Me.UltraDateTimeEditor1.Size = New System.Drawing.Size(332, 27)
         Me.UltraDateTimeEditor1.TabIndex = 11
+        Me.UltraDateTimeEditor1.Value = New Date(2017, 1, 22, 0, 0, 0, 0)
         '
         'Panel1
         '
@@ -282,8 +283,8 @@ Partial Class stock_out
         '
         'Panel7
         '
-        Me.Panel7.Controls.Add(Me.lable_scanner)
         Me.Panel7.Controls.Add(Me.upload_path)
+        Me.Panel7.Controls.Add(Me.lable_scanner)
         Me.Panel7.Controls.Add(Me.btn_upload)
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel7.Location = New System.Drawing.Point(494, 0)
@@ -291,6 +292,16 @@ Partial Class stock_out
         Me.Panel7.Padding = New System.Windows.Forms.Padding(50, 0, 0, 0)
         Me.Panel7.Size = New System.Drawing.Size(442, 59)
         Me.Panel7.TabIndex = 1
+        '
+        'upload_path
+        '
+        Me.upload_path.AutoSize = True
+        Me.upload_path.Location = New System.Drawing.Point(207, 25)
+        Me.upload_path.Name = "upload_path"
+        Me.upload_path.Size = New System.Drawing.Size(59, 13)
+        Me.upload_path.TabIndex = 24
+        Me.upload_path.TabStop = True
+        Me.upload_path.Text = "LinkLabel1"
         '
         'lable_scanner
         '
@@ -301,19 +312,6 @@ Partial Class stock_out
         Me.lable_scanner.Size = New System.Drawing.Size(80, 19)
         Me.lable_scanner.TabIndex = 23
         Me.lable_scanner.Text = "Use Scanner"
-        '
-        'upload_path
-        '
-        Me.upload_path.AutoSize = True
-        Me.upload_path.Dock = System.Windows.Forms.DockStyle.Top
-        Me.upload_path.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.upload_path.Location = New System.Drawing.Point(179, 0)
-        Me.upload_path.Name = "upload_path"
-        Me.upload_path.Padding = New System.Windows.Forms.Padding(10, 25, 0, 0)
-        Me.upload_path.Size = New System.Drawing.Size(62, 44)
-        Me.upload_path.TabIndex = 22
-        Me.upload_path.Text = "Label1"
-        Me.upload_path.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'btn_upload
         '
@@ -326,7 +324,7 @@ Partial Class stock_out
         Me.btn_upload.DisabledColor = System.Drawing.Color.Gray
         Me.btn_upload.Dock = System.Windows.Forms.DockStyle.Left
         Me.btn_upload.Iconcolor = System.Drawing.Color.Transparent
-        Me.btn_upload.Iconimage = CType(resources.GetObject("btn_upload.Iconimage"), System.Drawing.Image)
+        Me.btn_upload.Iconimage = Nothing
         Me.btn_upload.Iconimage_right = Nothing
         Me.btn_upload.Iconimage_right_Selected = Nothing
         Me.btn_upload.Iconimage_Selected = Nothing
@@ -347,7 +345,7 @@ Partial Class stock_out
         Me.btn_upload.Size = New System.Drawing.Size(129, 59)
         Me.btn_upload.TabIndex = 21
         Me.btn_upload.Text = "UPLOAD"
-        Me.btn_upload.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_upload.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.btn_upload.Textcolor = System.Drawing.Color.White
         Me.btn_upload.TextFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
@@ -455,7 +453,7 @@ Partial Class stock_out
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Panel9 As Panel
     Friend WithEvents Panel8 As Panel
-    Friend WithEvents upload_path As Label
     Friend WithEvents lable_scanner As MetroFramework.Controls.MetroLabel
     Friend WithEvents Twain321 As Saraff.Twain.Twain32
+    Friend WithEvents upload_path As LinkLabel
 End Class

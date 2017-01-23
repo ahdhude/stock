@@ -103,6 +103,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="forms\Module_scan.vb" />
     <Compile Include="forms\Scan_form.Designer.vb">
       <DependentUpon>Scan_form.vb</DependentUpon>
     </Compile>
@@ -124,6 +125,12 @@
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
     <Compile Include="Login\Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainform.Designer.vb">
+      <DependentUpon>mainform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="mainform.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -158,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainform.resx">
+      <DependentUpon>mainform.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -195,6 +205,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="datbase.txt" />
+    <None Include="Resources\Document_64px.png" />
+    <Content Include="Resources\J2K_48px.png" />
+    <None Include="Resources\J2K_48px1.png" />
     <None Include="packages.config" />
     <None Include="Resources\Circled User Male_52px.png" />
     <None Include="Resources\User_48px1.png" />
