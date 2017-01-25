@@ -118,40 +118,46 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="J2K_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\J2K_48px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Circled User Male_52px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Circled User Male_52px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Password_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Password_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Cardboard Box_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cardboard Box_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Menu_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Menu_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="New Product_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\New Product_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Cancel_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cancel_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="User_48px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User_48px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Password_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Password_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cancel_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cancel_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Circled User Male_52px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Circled User Male_52px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="New Product_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\New Product_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Menu_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Menu_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="J2K_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\J2K_48px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="User_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Multiply_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Multiply_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Multiply_48px1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Multiply_48px1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Multiply_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Multiply_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Plus_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plus_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Document_64px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Document_64px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Minus_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Minus_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

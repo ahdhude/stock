@@ -123,6 +123,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property Minus_48px() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Minus_48px", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property Multiply_48px() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Multiply_48px", resourceCulture)
@@ -156,6 +166,16 @@ Namespace My.Resources
         Friend ReadOnly Property Password_48px() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Password_48px", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Plus_48px() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Plus_48px", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

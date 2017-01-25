@@ -7,5 +7,11 @@
 
     Public objlink As System.Windows.Forms.LinkLabel.Link
 
+    Public scan_file_name As String
+
+
+
+    Public grf_cons_path As String
+    Public grf_num_shared As String
 
 End Module
