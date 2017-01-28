@@ -360,7 +360,7 @@ Public Class stock_out
 
         End If
 
-
+        DataGrid1.AllowUserToAddRows = False
 
 
     End Sub
@@ -407,6 +407,15 @@ Public Class stock_out
 
 
 
+    End Sub
+
+    Private Sub BunifuFlatButton1_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton1.Click
+        If DataGrid1.Rows.Count = 0 Or DataGrid1.CurrentCell Is Nothing Then
+
+        Else
+            DataGrid1.Rows.Remove(DataGrid1.CurrentRow)
+
+        End If
     End Sub
 End Class
 
