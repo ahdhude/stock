@@ -136,7 +136,7 @@ Public Class Scan_form
            grf_cons_path + "\" + grf_new_name + ".jpeg",
            Microsoft.VisualBasic.FileIO.UIOption.AllDialogs,
            Microsoft.VisualBasic.FileIO.UICancelOption.DoNothing)
-
+            scan_grf_new_path = grf_cons_path + "\" + grf_new_name + ".jpeg"
 
             My.Computer.FileSystem.DeleteFile(path + "\GRF.jpeg")
         Else
@@ -154,6 +154,7 @@ Public Class Scan_form
 
 
         grf_new_name = Regex.Replace(scan_file_name, "[^\w\.@-]", "")
+
 
 
 

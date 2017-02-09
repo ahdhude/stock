@@ -13,5 +13,11 @@
 
     Public grf_cons_path As String
     Public grf_num_shared As String
+    Public scan_grf_new_path As String
+
+
+
+
+
 
 End Module

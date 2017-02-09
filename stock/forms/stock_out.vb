@@ -2,11 +2,30 @@
 Imports System.Globalization
 Imports System.Threading
 Imports System.IO
+Imports Infragistics.UltraGauge.Resources
 
 Imports System.Data.SqlClient
 
 Public Class stock_out
+    Dim image_id As Integer
+    Dim last_grf As Integer
+    Dim last_product_id As Integer
+    Dim last_product As String
+
+    Dim valueslist As List(Of String) = New List(Of String)
+    Dim list1 As New ArrayList
+
+    Dim list2 As New ArrayList
+
+
+    Dim selected_item As Integer
+    Dim selected_item_qty As Integer
+    Dim slected_stri As String
+
+
+
     Dim validate_product_counter As Integer = 0
+
 
     Dim validate_counter As Integer = 0
 
@@ -48,7 +67,6 @@ Public Class stock_out
         con.Open()
         Dim dr As SqlClient.SqlDataReader
         Dim cmd As New SqlClient.SqlCommand("select * from product", con)
-
         dr = cmd.ExecuteReader
 
         While dr.Read
@@ -56,6 +74,7 @@ Public Class stock_out
             combo_product.ValueMember = dr.Item(0)
             combo_product.DisplayMember = dr.Item(1).ToString
 
+            valueslist.Add(dr.Item(0))
             combo_product.Items.Add(dr.Item(1).ToString)
 
 
@@ -207,27 +226,25 @@ Public Class stock_out
 
 
     Private Sub btn_upload_Click(sender As Object, e As EventArgs) Handles btn_upload.Click
-        uploaded_path = Nothing
-        upload_path.Hide()
+        If textbox_grf_num.Text = Nothing Or textbox_grf_num.Text = grf_num_shared Then
 
-
-
-
-
-        upload_path.Text = Nothing
-        OpenFileDialog1.ShowDialog()
-        Dim file_path As String
-        file_path = OpenFileDialog1.FileName
-        file_path = Path.GetFileName(file_path)
-        upload_path.Text = file_path
-        If file_path = "OpenFileDialog1" Then
+            MsgBox("please enter a valid GRF number First")
+            textbox_grf_num.Focus()
         Else
-            upload_path.Show()
+
+            scan_file_name = textbox_grf_num.Text
+
+
+
+
+
+            Dim f As New Scan_form
+
+
+            f.Show()
 
 
         End If
-
-
 
 
     End Sub
@@ -291,7 +308,7 @@ Public Class stock_out
         End If
     End Sub
 
-    Public Sub lable_scanner_Click(sender As Object, e As EventArgs) Handles lable_scanner.Click
+    Public Sub lable_scanner_Click(sender As Object, e As EventArgs)
         If textbox_grf_num.Text = Nothing Or textbox_grf_num.Text = grf_num_shared Then
 
             MsgBox("please enter a valid GRF number First")
@@ -316,7 +333,7 @@ Public Class stock_out
 
     End Sub
 
-    Private Sub upload_path_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs)
+    Private Sub upload_path_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles upload_path.LinkClicked
         System.Diagnostics.Process.Start(e.Link.LinkData.ToString)
 
     End Sub
@@ -360,7 +377,18 @@ Public Class stock_out
 
         End If
 
+        Call into_array()
+
+
+
         DataGrid1.AllowUserToAddRows = False
+        combo_product.Text = Nothing
+        textbox_qty_giv.Text = Nothing
+        textbox_qty_req.Text = Nothing
+
+        Call array_toDB()
+
+
 
 
     End Sub
@@ -397,6 +425,14 @@ Public Class stock_out
             validate_product_counter = 1
             textbox_qty_giv.Focus()
 
+        ElseIf label1.text <= 0 Then
+
+            MsgBox("The item does not exist in stock")
+            validate_product_counter = 1
+
+            Exit Sub
+
+
 
         Else
 
@@ -413,9 +449,390 @@ Public Class stock_out
         If DataGrid1.Rows.Count = 0 Or DataGrid1.CurrentCell Is Nothing Then
 
         Else
+            Call delete_frm_array()
             DataGrid1.Rows.Remove(DataGrid1.CurrentRow)
 
+
+
         End If
+    End Sub
+
+
+    Sub validation()
+
+        If dropdown_emp.Text = Nothing Then
+            MessageBox.Show("Please select a name")
+            dropdown_emp.Focus()
+
+        ElseIf upload_path.Text = "LinkLabel" Then
+            MessageBox.Show("please scan the document")
+
+        ElseIf textbox_details.Text = Nothing Then
+            MessageBox.Show("Please enter Details")
+            textbox_details.Focus()
+
+
+        ElseIf DataGrid1.RowCount = 0 Then
+
+            MsgBox("please add an item ")
+
+
+        Else
+
+            Call process()
+
+
+        End If
+
+
+    End Sub
+
+
+
+
+    Sub process()
+
+
+
+
+        Call imagetodb()
+
+        Call datatodb()
+
+        Call DG_todb()
+
+
+
+
+
+    End Sub
+
+    Private Sub btn_process_Click(sender As Object, e As EventArgs) Handles btn_process.Click
+        Call validation()
+
+    End Sub
+
+
+    Sub imagetodb()
+        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
+        con.Open()
+        Dim scan_image As Image = Image.FromFile(grf_cons_path + "\" + upload_path.Text)
+        Dim ms As New MemoryStream
+        scan_image.Save(ms, scan_image.RawFormat)
+
+        Dim cmd As New SqlClient.SqlCommand("INSERT INTO GRFPHOTO ( GRF_photo) VALUES(@grfphoto)", con)
+
+        cmd.Parameters.Add("@grfphoto", SqlDbType.Image).Value = ms.ToArray()
+
+        Try
+            cmd.ExecuteNonQuery()
+
+        Catch ex As Exception
+
+        End Try
+        con.Close()
+
+
+
+    End Sub
+
+
+
+    Sub datatodb()
+
+        Call get_last_imageid()
+
+        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
+
+
+        Dim cmd As New SqlClient.SqlCommand("INSERT INTO GRF (Grf_Number, Grf_date, Grf_requested_by, grf_photo) VALUES(@Grf_Number,@Grf_date,@Grf_requested_by,@grf_photo)", con)
+
+
+
+        con.Open()
+
+
+
+        cmd.Parameters.AddWithValue("@Grf_Number", textbox_grf_num.Text.ToString)
+        cmd.Parameters.AddWithValue("@Grf_date", textbox_date.Value.ToString)
+        cmd.Parameters.AddWithValue("@Grf_requested_by", dropdown_emp.SelectedItem.DataValue)
+        cmd.Parameters.AddWithValue("@grf_photo", image_id)
+
+        Try
+            cmd.ExecuteNonQuery()
+
+        Catch ex As Exception
+
+            MessageBox.Show("GRF already Exist")
+        End Try
+
+        con.Close()
+
+
+    End Sub
+
+
+    Sub get_last_imageid()
+        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
+        con.Open()
+        Dim dr As SqlClient.SqlDataReader
+        Dim cmd As New SqlClient.SqlCommand("SELECT * FROM  GRFPHOTO WHERE Id = (SELECT MAX(Id) FROM GRFPHOTO)", con)
+
+        dr = cmd.ExecuteReader
+
+        While dr.Read
+
+            image_id = dr.Item(0)
+
+        End While
+
+
+        con.Close()
+
+    End Sub
+
+
+    Sub get_last_grf_id()
+        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
+        con.Open()
+        Dim dr As SqlClient.SqlDataReader
+        Dim cmd As New SqlClient.SqlCommand("SELECT * FROM  GRF WHERE Grf_id = (SELECT MAX(Grf_id) FROM GRF)", con)
+
+        dr = cmd.ExecuteReader
+
+        While dr.Read
+
+            last_grf = dr.Item(0)
+
+        End While
+
+
+        con.Close()
+    End Sub
+
+
+
+
+
+
+    Sub DG_todb()
+
+        Call get_last_grf_id()
+        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
+        Dim cmd As New SqlClient.SqlCommand("INSERT INTO GRF_Transaction(Gtrans_date, Gtrans_description, item_sold_qtry,item_req_qty, Grf_Grf_id, Products_product_id)VALUES(@Gtrans_date,@Gtrans_description,@item_sold_qtry,@item_req_qty,@Grf_Grf_id,@Products_product_id)", con)
+
+
+        cmd.Parameters.Add("@Gtrans_date", SqlDbType.DateTime)
+        cmd.Parameters.Add("@Gtrans_description", SqlDbType.NVarChar)
+        cmd.Parameters.Add("@item_sold_qtry", SqlDbType.Int)
+        cmd.Parameters.Add("@item_req_qty", SqlDbType.Int)
+        cmd.Parameters.Add("@Grf_Grf_id", SqlDbType.Int)
+        cmd.Parameters.Add("@Products_product_id", SqlDbType.Int)
+
+
+
+        For i As Integer = 0 To DataGrid1.Rows.Count - 1
+            con.Close()
+
+            cmd.Parameters(0).Value = DateTime.Today
+            cmd.Parameters(1).Value = textbox_details.Text
+            cmd.Parameters(2).Value = DataGrid1.Rows(i).Cells(2).Value
+            cmd.Parameters(3).Value = DataGrid1.Rows(i).Cells(1).Value
+            cmd.Parameters(4).Value = last_grf
+            last_product = DataGrid1.Rows(i).Cells(0).Value.ToString
+            Call find_product_id()
+            cmd.Parameters(5).Value = last_product_id
+            con.Open()
+            cmd.ExecuteNonQuery()
+        Next
+
+
+    End Sub
+
+
+
+    Sub find_product_id()
+
+
+        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
+        con.Open()
+        Dim dr As SqlDataReader
+        Dim cmd As New SqlClient.SqlCommand("SELECT Product_id, product_name FROM Product WHERE (Product_Name = '" + last_product + "')", con)
+
+
+        dr = cmd.ExecuteReader
+
+        While dr.Read
+            last_product_id = dr.Item(0).ToString
+
+
+
+
+
+
+
+        End While
+
+        con.Close()
+
+
+
+    End Sub
+
+
+
+
+    Sub update_inventory()
+        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
+        Dim cmd As New SqlClient.SqlCommand("Update Office_inventory Set total_availiable = @total_availiable WHERE(product_product_id = @product_id))", con)
+
+        cmd.Parameters.Add("@total_availiable", SqlDbType.Int)
+        cmd.Parameters.Add("@product_id", SqlDbType.Int)
+
+
+        For i As Integer = 0 To DataGrid1.Rows.Count - 1
+            con.Close()
+
+            'cmd.Parameters(0).Value = 
+
+            'cmd.Parameters(1).Value = textbox_details.Text
+            'cmd.Parameters(2).Value = DataGrid1.Rows(i).Cells(2).Value
+            'cmd.Parameters(3).Value = DataGrid1.Rows(i).Cells(1).Value
+            'cmd.Parameters(4).Value = last_grf
+            'last_product = DataGrid1.Rows(i).Cells(0).Value.ToString
+            'Call find_product_id()
+            'cmd.Parameters(5).Value = last_product_id
+            'con.Open()
+            'cmd.ExecuteNonQuery()
+        Next
+
+
+
+
+
+    End Sub
+
+
+
+
+
+    Private Sub combo_product_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles combo_product.SelectionChangeCommitted, combo_product.Leave, combo_product.TextChanged
+
+
+
+
+        Call check_pro_availiablity()
+
+
+
+        If selected_item_qty < 10 Then
+            slected_stri = String.Format("{0:0#}", selected_item_qty)
+
+            Label1.Text = slected_stri
+
+        Else
+            Label1.Text = selected_item_qty
+
+        End If
+
+
+
+
+        BunifuCircleProgressbar1.Value = selected_item_qty
+
+    End Sub
+
+
+
+
+    Sub check_pro_availiablity()
+
+        Dim dr As SqlDataReader
+        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
+        Dim cmd As New SqlClient.SqlCommand("Select inventory_id, product_product_id, total_availiable From Office_inventory Where (product_product_id = @product_id)", con)
+        cmd.Parameters.Add("@product_id", SqlDbType.Int)
+        cmd.Parameters(0).Value = combo_product.SelectedIndex + 1
+
+        con.Open()
+        dr = cmd.ExecuteReader
+
+        While dr.Read
+            selected_item_qty = dr.Item(2)
+
+
+
+
+
+
+
+        End While
+
+        con.Close()
+
+
+
+    End Sub
+
+
+    Sub into_array()
+
+
+
+        list1.Add(CInt(Label1.Text) - CInt(textbox_qty_giv.Text))
+        list2.Add(valueslist.Item(combo_product.SelectedIndex))
+
+
+
+
+
+    End Sub
+
+
+    'the two arrays of products and qty updated to inventory
+    Sub array_toDB()
+        Dim x As Integer = 0
+
+        Dim i As Integer = list1.Count
+
+
+        Do Until x >= i
+
+
+
+            MessageBox.Show(list1(x))
+
+            MessageBox.Show(list2(x))
+
+
+
+
+
+            x = x + 1
+
+        Loop
+
+
+
+
+
+
+    End Sub
+
+
+    Sub delete_frm_array()
+        Dim i As Integer = DataGrid1.CurrentRow.Index
+        list1.RemoveAt(i)
+        list2.RemoveAt(i)
+
+    End Sub
+
+
+
+    Sub get_baaky_into_list()
+
+
+
+
     End Sub
 End Class
 

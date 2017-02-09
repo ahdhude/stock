@@ -35,13 +35,12 @@ Partial Class stock_out
         Me.textbox_details = New ns1.BunifuMaterialTextbox()
         Me.textbox_grf_num = New ns1.BunifuMaterialTextbox()
         Me.dropdown_emp = New Infragistics.Win.UltraWinEditors.UltraComboEditor()
-        Me.UltraDateTimeEditor1 = New Infragistics.Win.UltraWinEditors.UltraDateTimeEditor()
+        Me.textbox_date = New Infragistics.Win.UltraWinEditors.UltraDateTimeEditor()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.BunifuFlatButton1 = New ns1.BunifuFlatButton()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.BunifuCustomLabel1 = New ns1.BunifuCustomLabel()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.lable_scanner = New MetroFramework.Controls.MetroLabel()
         Me.btn_upload = New ns1.BunifuFlatButton()
         Me.Twain321 = New Saraff.Twain.Twain32(Me.components)
         Me.upload_path = New System.Windows.Forms.LinkLabel()
@@ -52,9 +51,11 @@ Partial Class stock_out
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.BunifuCircleProgressbar1 = New ns1.BunifuCircleProgressbar()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dropdown_emp, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraDateTimeEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.textbox_date, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -205,19 +206,19 @@ Partial Class stock_out
         Me.dropdown_emp.TabIndex = 1
         Me.dropdown_emp.Text = "Requested By"
         '
-        'UltraDateTimeEditor1
+        'textbox_date
         '
-        Me.UltraDateTimeEditor1.DateTime = New Date(2017, 1, 22, 0, 0, 0, 0)
-        Me.UltraDateTimeEditor1.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2013
-        Me.UltraDateTimeEditor1.Font = New System.Drawing.Font("Century Gothic", 11.25!)
-        Me.UltraDateTimeEditor1.FormatProvider = New System.Globalization.CultureInfo("en-GB")
-        Me.UltraDateTimeEditor1.Location = New System.Drawing.Point(27, 99)
-        Me.UltraDateTimeEditor1.MaskDisplayMode = Infragistics.Win.UltraWinMaskedEdit.MaskMode.IncludeLiteralsWithPadding
-        Me.UltraDateTimeEditor1.MaskInput = "{LOC}dd/mm/yyyy"
-        Me.UltraDateTimeEditor1.Name = "UltraDateTimeEditor1"
-        Me.UltraDateTimeEditor1.Size = New System.Drawing.Size(206, 27)
-        Me.UltraDateTimeEditor1.TabIndex = 2
-        Me.UltraDateTimeEditor1.Value = New Date(2017, 1, 22, 0, 0, 0, 0)
+        Me.textbox_date.DateTime = New Date(2017, 1, 22, 0, 0, 0, 0)
+        Me.textbox_date.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2013
+        Me.textbox_date.Font = New System.Drawing.Font("Century Gothic", 11.25!)
+        Me.textbox_date.FormatProvider = New System.Globalization.CultureInfo("en-GB")
+        Me.textbox_date.Location = New System.Drawing.Point(27, 99)
+        Me.textbox_date.MaskDisplayMode = Infragistics.Win.UltraWinMaskedEdit.MaskMode.IncludeLiteralsWithPadding
+        Me.textbox_date.MaskInput = "{date}"
+        Me.textbox_date.Name = "textbox_date"
+        Me.textbox_date.Size = New System.Drawing.Size(206, 27)
+        Me.textbox_date.TabIndex = 2
+        Me.textbox_date.Value = New Date(2017, 1, 22, 0, 0, 0, 0)
         '
         'Panel1
         '
@@ -286,23 +287,13 @@ Partial Class stock_out
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'lable_scanner
-        '
-        Me.lable_scanner.AutoSize = True
-        Me.lable_scanner.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lable_scanner.Location = New System.Drawing.Point(422, 107)
-        Me.lable_scanner.Name = "lable_scanner"
-        Me.lable_scanner.Size = New System.Drawing.Size(80, 19)
-        Me.lable_scanner.TabIndex = 5
-        Me.lable_scanner.Text = "Use Scanner"
-        '
         'btn_upload
         '
         Me.btn_upload.Activecolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.btn_upload.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.btn_upload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btn_upload.BorderRadius = 0
-        Me.btn_upload.ButtonText = "UPLOAD"
+        Me.btn_upload.ButtonText = "SCAN"
         Me.btn_upload.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btn_upload.DisabledColor = System.Drawing.Color.Gray
         Me.btn_upload.Iconcolor = System.Drawing.Color.Transparent
@@ -326,7 +317,7 @@ Partial Class stock_out
         Me.btn_upload.selected = False
         Me.btn_upload.Size = New System.Drawing.Size(71, 27)
         Me.btn_upload.TabIndex = 4
-        Me.btn_upload.Text = "UPLOAD"
+        Me.btn_upload.Text = "SCAN"
         Me.btn_upload.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.btn_upload.Textcolor = System.Drawing.Color.White
         Me.btn_upload.TextFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -390,7 +381,7 @@ Partial Class stock_out
         Me.combo_product.FormattingEnabled = True
         Me.combo_product.Location = New System.Drawing.Point(40, 37)
         Me.combo_product.Name = "combo_product"
-        Me.combo_product.Size = New System.Drawing.Size(302, 28)
+        Me.combo_product.Size = New System.Drawing.Size(251, 28)
         Me.combo_product.TabIndex = 24
         '
         'textbox_qty_req
@@ -399,7 +390,7 @@ Partial Class stock_out
         Me.textbox_qty_req.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.textbox_qty_req.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.textbox_qty_req.HintForeColor = System.Drawing.Color.Empty
-        Me.textbox_qty_req.HintText = "Quatity Requested"
+        Me.textbox_qty_req.HintText = "Quantity Requested"
         Me.textbox_qty_req.isPassword = False
         Me.textbox_qty_req.LineFocusedColor = System.Drawing.Color.Blue
         Me.textbox_qty_req.LineIdleColor = System.Drawing.Color.Gray
@@ -418,7 +409,7 @@ Partial Class stock_out
         Me.textbox_qty_giv.Font = New System.Drawing.Font("Century Gothic", 9.75!)
         Me.textbox_qty_giv.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.textbox_qty_giv.HintForeColor = System.Drawing.Color.Empty
-        Me.textbox_qty_giv.HintText = "Quatity Given"
+        Me.textbox_qty_giv.HintText = "Quantity Given"
         Me.textbox_qty_giv.isPassword = False
         Me.textbox_qty_giv.LineFocusedColor = System.Drawing.Color.Blue
         Me.textbox_qty_giv.LineIdleColor = System.Drawing.Color.Gray
@@ -433,10 +424,9 @@ Partial Class stock_out
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.UltraDateTimeEditor1)
+        Me.GroupBox1.Controls.Add(Me.textbox_date)
         Me.GroupBox1.Controls.Add(Me.textbox_details)
         Me.GroupBox1.Controls.Add(Me.dropdown_emp)
-        Me.GroupBox1.Controls.Add(Me.lable_scanner)
         Me.GroupBox1.Controls.Add(Me.upload_path)
         Me.GroupBox1.Controls.Add(Me.btn_upload)
         Me.GroupBox1.Controls.Add(Me.textbox_grf_num)
@@ -459,6 +449,8 @@ Partial Class stock_out
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.BunifuCircleProgressbar1)
         Me.GroupBox2.Controls.Add(Me.textbox_qty_giv)
         Me.GroupBox2.Controls.Add(Me.combo_product)
         Me.GroupBox2.Controls.Add(Me.btn_add)
@@ -469,6 +461,38 @@ Partial Class stock_out
         Me.GroupBox2.Size = New System.Drawing.Size(408, 245)
         Me.GroupBox2.TabIndex = 20
         Me.GroupBox2.TabStop = False
+        '
+        'BunifuCircleProgressbar1
+        '
+        Me.BunifuCircleProgressbar1.animated = False
+        Me.BunifuCircleProgressbar1.animationIterval = 2
+        Me.BunifuCircleProgressbar1.animationSpeed = 300
+        Me.BunifuCircleProgressbar1.BackColor = System.Drawing.Color.Transparent
+        Me.BunifuCircleProgressbar1.BackgroundImage = CType(resources.GetObject("BunifuCircleProgressbar1.BackgroundImage"), System.Drawing.Image)
+        Me.BunifuCircleProgressbar1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCircleProgressbar1.ForeColor = System.Drawing.Color.Transparent
+        Me.BunifuCircleProgressbar1.LabelVisible = True
+        Me.BunifuCircleProgressbar1.LineProgressThickness = 8
+        Me.BunifuCircleProgressbar1.LineThickness = 5
+        Me.BunifuCircleProgressbar1.Location = New System.Drawing.Point(317, 19)
+        Me.BunifuCircleProgressbar1.MaxValue = 100
+        Me.BunifuCircleProgressbar1.Name = "BunifuCircleProgressbar1"
+        Me.BunifuCircleProgressbar1.ProgressBackColor = System.Drawing.Color.Gainsboro
+        Me.BunifuCircleProgressbar1.ProgressColor = System.Drawing.Color.SeaGreen
+        Me.BunifuCircleProgressbar1.Size = New System.Drawing.Size(65, 65)
+        Me.BunifuCircleProgressbar1.TabIndex = 21
+        Me.BunifuCircleProgressbar1.Value = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.SeaGreen
+        Me.Label1.Location = New System.Drawing.Point(339, 41)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(24, 18)
+        Me.Label1.TabIndex = 27
+        Me.Label1.Text = "00"
         '
         'stock_out
         '
@@ -487,13 +511,14 @@ Partial Class stock_out
         Me.Text = "stock_out"
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dropdown_emp, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraDateTimeEditor1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.textbox_date, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -505,11 +530,10 @@ Partial Class stock_out
     Friend WithEvents textbox_details As ns1.BunifuMaterialTextbox
     Friend WithEvents textbox_grf_num As ns1.BunifuMaterialTextbox
     Friend WithEvents dropdown_emp As Infragistics.Win.UltraWinEditors.UltraComboEditor
-    Friend WithEvents UltraDateTimeEditor1 As Infragistics.Win.UltraWinEditors.UltraDateTimeEditor
+    Friend WithEvents textbox_date As Infragistics.Win.UltraWinEditors.UltraDateTimeEditor
     Friend WithEvents BunifuCustomLabel1 As ns1.BunifuCustomLabel
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents btn_upload As ns1.BunifuFlatButton
-    Friend WithEvents lable_scanner As MetroFramework.Controls.MetroLabel
     Friend WithEvents Twain321 As Saraff.Twain.Twain32
     Friend WithEvents BunifuFlatButton1 As ns1.BunifuFlatButton
     Friend WithEvents upload_path As LinkLabel
@@ -525,4 +549,6 @@ Partial Class stock_out
     Friend WithEvents Products As DataGridViewTextBoxColumn
     Friend WithEvents qty_req As DataGridViewTextBoxColumn
     Friend WithEvents qty_given As DataGridViewTextBoxColumn
+    Friend WithEvents BunifuCircleProgressbar1 As ns1.BunifuCircleProgressbar
+    Friend WithEvents Label1 As Label
 End Class
