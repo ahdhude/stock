@@ -11,6 +11,10 @@ Public Class stock_out
     Dim last_grf As Integer
     Dim last_product_id As Integer
     Dim last_product As String
+    Dim grf_exist As Integer
+
+    Dim product_exit_grid As Integer
+
 
     Dim valueslist As List(Of String) = New List(Of String)
     Dim list1 As New ArrayList
@@ -371,13 +375,14 @@ Public Class stock_out
             DataGrid1.AllowUserToAddRows = True
             Dim row As String() = New String() {combo_product.Text, textbox_qty_req.Text, textbox_qty_giv.Text}
             DataGrid1.Rows.Add(row)
+            Call into_array()
+
         Else
-            MessageBox.Show("Please enter a valid value")
+
             validate_product_counter = 0
 
         End If
 
-        Call into_array()
 
 
 
@@ -386,7 +391,7 @@ Public Class stock_out
         textbox_qty_giv.Text = Nothing
         textbox_qty_req.Text = Nothing
 
-        Call array_toDB()
+
 
 
 
@@ -395,6 +400,12 @@ Public Class stock_out
 
 
     Sub product_add_validation()
+        validate_counter = 0
+
+        Call check_item_exit_grid()
+
+
+
 
         Dim combo As String = combo_product.Text
 
@@ -403,38 +414,54 @@ Public Class stock_out
 
             validate_product_counter = 1
             combo_product.Focus()
+            MessageBox.Show("Please enter a valid value")
 
 
 
         ElseIf textbox_qty_req.Text = Nothing Then
             validate_product_counter = 1
             textbox_qty_req.Focus()
+            MessageBox.Show("Please enter a valid value")
 
 
         ElseIf textbox_qty_giv.Text = Nothing Then
             validate_product_counter = 1
             textbox_qty_giv.Focus()
+            MessageBox.Show("Please enter a valid value")
 
         ElseIf textbox_qty_giv.Text = Nothing Then
 
             validate_product_counter = 1
             textbox_qty_giv.Focus()
+            MessageBox.Show("Please enter a valid value")
 
         ElseIf CInt(textbox_qty_giv.Text) > (textbox_qty_req.Text) Then
 
             validate_product_counter = 1
             textbox_qty_giv.Focus()
+            MessageBox.Show("Please enter a valid value")
 
-        ElseIf label1.text <= 0 Then
+        ElseIf Label1.Text <= 0 Then
 
             MsgBox("The item does not exist in stock")
             validate_product_counter = 1
 
-            Exit Sub
 
+        ElseIf product_exit_grid = 1 Then
+            MsgBox("Item already added")
+            validate_product_counter = 1
 
+        ElseIf textbox_grf_num.Text = Nothing Then
+            MsgBox("Please Enter a valid GRF number ")
+            validate_product_counter = 1
+
+        ElseIf upload_path.Text = "LinkLabel1" Then
+
+            MsgBox("Please Scan the GRF ")
+            validate_product_counter = 1
 
         Else
+
 
 
 
@@ -501,6 +528,8 @@ Public Class stock_out
 
         Call DG_todb()
 
+        Call sucess()
+
 
 
 
@@ -509,6 +538,8 @@ Public Class stock_out
 
     Private Sub btn_process_Click(sender As Object, e As EventArgs) Handles btn_process.Click
         Call validation()
+
+
 
     End Sub
 
@@ -539,6 +570,16 @@ Public Class stock_out
 
 
     Sub datatodb()
+        Call check_grf_existence()
+
+        If grf_exist = 1 Then
+
+            MessageBox.Show("GRF already Exist")
+            Exit Sub
+
+
+        End If
+
 
         Call get_last_imageid()
 
@@ -558,13 +599,10 @@ Public Class stock_out
         cmd.Parameters.AddWithValue("@Grf_requested_by", dropdown_emp.SelectedItem.DataValue)
         cmd.Parameters.AddWithValue("@grf_photo", image_id)
 
-        Try
-            cmd.ExecuteNonQuery()
 
-        Catch ex As Exception
+        cmd.ExecuteNonQuery()
+        Call array_toDB()
 
-            MessageBox.Show("GRF already Exist")
-        End Try
 
         con.Close()
 
@@ -616,10 +654,11 @@ Public Class stock_out
 
 
     Sub DG_todb()
+        Now.ToShortDateString()
 
         Call get_last_grf_id()
         Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
-        Dim cmd As New SqlClient.SqlCommand("INSERT INTO GRF_Transaction(Gtrans_date, Gtrans_description, item_sold_qtry,item_req_qty, Grf_Grf_id, Products_product_id)VALUES(@Gtrans_date,@Gtrans_description,@item_sold_qtry,@item_req_qty,@Grf_Grf_id,@Products_product_id)", con)
+        Dim cmd As New SqlClient.SqlCommand("INSERT INTO GRF_Transaction( Gtrans_date,Gtrans_description, item_sold_qtry,item_req_qty, Grf_Grf_id, Products_product_id)VALUES(@Gtrans_date,@Gtrans_description,@item_sold_qtry,@item_req_qty,@Grf_Grf_id,@Products_product_id)", con)
 
 
         cmd.Parameters.Add("@Gtrans_date", SqlDbType.DateTime)
@@ -634,7 +673,7 @@ Public Class stock_out
         For i As Integer = 0 To DataGrid1.Rows.Count - 1
             con.Close()
 
-            cmd.Parameters(0).Value = DateTime.Today
+            cmd.Parameters(0).Value = DateTime.Now
             cmd.Parameters(1).Value = textbox_details.Text
             cmd.Parameters(2).Value = DataGrid1.Rows(i).Cells(2).Value
             cmd.Parameters(3).Value = DataGrid1.Rows(i).Cells(1).Value
@@ -644,7 +683,9 @@ Public Class stock_out
             cmd.Parameters(5).Value = last_product_id
             con.Open()
             cmd.ExecuteNonQuery()
+
         Next
+
 
 
     End Sub
@@ -682,35 +723,13 @@ Public Class stock_out
 
 
 
-    Sub update_inventory()
-        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
-        Dim cmd As New SqlClient.SqlCommand("Update Office_inventory Set total_availiable = @total_availiable WHERE(product_product_id = @product_id))", con)
-
-        cmd.Parameters.Add("@total_availiable", SqlDbType.Int)
-        cmd.Parameters.Add("@product_id", SqlDbType.Int)
-
-
-        For i As Integer = 0 To DataGrid1.Rows.Count - 1
-            con.Close()
-
-            'cmd.Parameters(0).Value = 
-
-            'cmd.Parameters(1).Value = textbox_details.Text
-            'cmd.Parameters(2).Value = DataGrid1.Rows(i).Cells(2).Value
-            'cmd.Parameters(3).Value = DataGrid1.Rows(i).Cells(1).Value
-            'cmd.Parameters(4).Value = last_grf
-            'last_product = DataGrid1.Rows(i).Cells(0).Value.ToString
-            'Call find_product_id()
-            'cmd.Parameters(5).Value = last_product_id
-            'con.Open()
-            'cmd.ExecuteNonQuery()
-        Next
 
 
 
 
 
-    End Sub
+
+
 
 
 
@@ -794,14 +813,23 @@ Public Class stock_out
 
         Dim i As Integer = list1.Count
 
+        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
+        Dim cmd As New SqlClient.SqlCommand("UPDATE Office_inventory SET total_availiable = @ac WHERE (product_product_id = @pro)", con)
+
+        cmd.Parameters.Add("@ac", SqlDbType.Int)
+        cmd.Parameters.Add("@pro", SqlDbType.Int)
+
 
         Do Until x >= i
 
+            con.Close()
 
 
-            MessageBox.Show(list1(x))
+            cmd.Parameters(0).Value = list1(x)
+            cmd.Parameters(1).Value = list2(x)
 
-            MessageBox.Show(list2(x))
+            con.Open()
+            cmd.ExecuteNonQuery()
 
 
 
@@ -828,11 +856,107 @@ Public Class stock_out
 
 
 
-    Sub get_baaky_into_list()
+    Sub check_grf_existence()
+
+        grf_exist = 0
+
+
+        Dim dr As SqlDataReader
+        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
+        Dim cmd As New SqlClient.SqlCommand("SELECT * FROM GRF where Grf_Number=@grf_num", con)
+        cmd.Parameters.Add("@grf_num", SqlDbType.Char)
+
+
+        cmd.Parameters(0).Value = grf_num_shared
+
+        con.Open()
+        dr = cmd.ExecuteReader
+
+
+        If dr.HasRows Then
+
+            grf_exist = 1
+
+
+        End If
+
+        con.Close()
+
+    End Sub
+
+
+
+    Sub check_item_exit_grid()
+
+        If DataGrid1.Rows.Count = 0 Then
+        Else
+            product_exit_grid = 0
+
+            Dim x As Integer = 0
+            Dim y As String
+
+
+            Do Until x >= DataGrid1.Rows.Count
+
+                y = DataGrid1.Rows(x).Cells(0).Value.ToString()
+
+                x = x + 1
+
+                If y = combo_product.Text Then
+
+                    product_exit_grid = 1
+
+
+                    Exit Sub
+                End If
+
+            Loop
+
+
+
+
+
+        End If
+
+
+    End Sub
+
+
+
+
+    Sub sucess()
+
+
+        MessageBox.Show("GRF NUMBER: " + textbox_grf_num.Text + " PROCESSED")
+
+        dropdown_emp.SelectedItem = Nothing
+        textbox_grf_num.Text = Nothing
+        upload_path.Links.Clear()
+
+        upload_path.Text = "LinkLabel1"
+        upload_path.Hide()
+        combo_product.SelectedItem = Nothing
+
+        BunifuCircleProgressbar1.ResetText()
+        Label1.Text = "00"
+        textbox_details.Text = Nothing
+
+
+        DataGrid1.Rows.Clear()
+
+
+
+
+
+
+
+
 
 
 
 
     End Sub
+
+
 End Class
 

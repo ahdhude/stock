@@ -17,7 +17,7 @@
 
 
 
-
+    Public product_form As New Product_Form
 
 
 End Module

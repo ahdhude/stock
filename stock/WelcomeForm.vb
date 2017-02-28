@@ -8,6 +8,7 @@
 
     Private Sub button_PO_Click(sender As Object, e As EventArgs) Handles button_PO.Click
 
+        Panel6.Controls.Clear()
 
 
         Module_scan.stock_out.TopLevel = False
@@ -27,5 +28,18 @@
 
     End Sub
 
+    Private Sub BunifuFlatButton2_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton2.Click
+        Panel6.Controls.Clear()
 
+        Module_scan.product_form.TopLevel = False
+        Panel6.AutoScroll = True
+
+
+
+        Panel5.Controls.Add(Module_scan.product_form)
+
+        Module_scan.product_form.Parent = Panel6
+
+        Module_scan.product_form.Show()
+    End Sub
 End Class
