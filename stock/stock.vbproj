@@ -139,6 +139,12 @@
     <Compile Include="forms\stock_out.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\Supplier_Form.Designer.vb">
+      <DependentUpon>Supplier_Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Supplier_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\stock_out.resx">
       <DependentUpon>stock_out.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\Supplier_Form.resx">
+      <DependentUpon>Supplier_Form.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>

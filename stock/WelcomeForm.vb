@@ -42,4 +42,19 @@
 
         Module_scan.product_form.Show()
     End Sub
+
+    Private Sub BunifuFlatButton3_Click(sender As Object, e As EventArgs) Handles BunifuFlatButton3.Click
+        Panel6.Controls.Clear()
+
+        Module_scan.supplier_form.TopLevel = False
+        Panel6.AutoScroll = True
+
+
+
+        Panel5.Controls.Add(Module_scan.supplier_form)
+
+        Module_scan.supplier_form.Parent = Panel6
+
+        Module_scan.supplier_form.Show()
+    End Sub
 End Class

@@ -30,22 +30,23 @@ Partial Class Product_Form
         Me.txtbox_eng_name = New ns1.BunifuMaterialTextbox()
         Me.txtbox_dhiv_name = New ns1.BunifuMaterialTextbox()
         Me.txtbox_details = New ns1.BunifuMaterialTextbox()
-        Me.BunifuDropdown1 = New ns1.BunifuDropdown()
         Me.Label_Liyekiyun = New System.Windows.Forms.Label()
-        Me.BunifuCheckbox1 = New ns1.BunifuCheckbox()
-        Me.BunifuCheckbox2 = New ns1.BunifuCheckbox()
+        Me.checkbox_liyekiyumuge = New ns1.BunifuCheckbox()
+        Me.checkbox_mudhaluge = New ns1.BunifuCheckbox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btn_add = New ns1.BunifuFlatButton()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.combo_unit = New Infragistics.Win.UltraWinEditors.UltraComboEditor()
         Me.Btn_delete = New ns1.BunifuFlatButton()
         Me.btn_update = New ns1.BunifuFlatButton()
-        Me.label_unit = New System.Windows.Forms.Label()
         Me.datagrid_product = New ns1.BunifuCustomDataGrid()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.BunifuCustomLabel1 = New ns1.BunifuCustomLabel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel2.SuspendLayout()
+        CType(Me.combo_unit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.datagrid_product, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -103,7 +104,7 @@ Partial Class Product_Form
         Me.txtbox_details.Font = New System.Drawing.Font("Century Gothic", 11.25!)
         Me.txtbox_details.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtbox_details.HintForeColor = System.Drawing.Color.Empty
-        Me.txtbox_details.HintText = ""
+        Me.txtbox_details.HintText = "Barcode"
         Me.txtbox_details.isPassword = False
         Me.txtbox_details.LineFocusedColor = System.Drawing.Color.Blue
         Me.txtbox_details.LineIdleColor = System.Drawing.Color.Gray
@@ -114,21 +115,8 @@ Partial Class Product_Form
         Me.txtbox_details.Name = "txtbox_details"
         Me.txtbox_details.Size = New System.Drawing.Size(227, 52)
         Me.txtbox_details.TabIndex = 2
+        Me.txtbox_details.Text = "Details"
         Me.txtbox_details.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        '
-        'BunifuDropdown1
-        '
-        Me.BunifuDropdown1.BackColor = System.Drawing.Color.Transparent
-        Me.BunifuDropdown1.BorderRadius = 3
-        Me.BunifuDropdown1.ForeColor = System.Drawing.Color.White
-        Me.BunifuDropdown1.Items = New String(-1) {}
-        Me.BunifuDropdown1.Location = New System.Drawing.Point(103, 251)
-        Me.BunifuDropdown1.Name = "BunifuDropdown1"
-        Me.BunifuDropdown1.NomalColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
-        Me.BunifuDropdown1.onHoverColor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
-        Me.BunifuDropdown1.selectedIndex = -1
-        Me.BunifuDropdown1.Size = New System.Drawing.Size(78, 35)
-        Me.BunifuDropdown1.TabIndex = 3
         '
         'Label_Liyekiyun
         '
@@ -140,29 +128,29 @@ Partial Class Product_Form
         Me.Label_Liyekiyun.TabIndex = 4
         Me.Label_Liyekiyun.Text = "Liyekiyumuge"
         '
-        'BunifuCheckbox1
+        'checkbox_liyekiyumuge
         '
-        Me.BunifuCheckbox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(117, Byte), Integer))
-        Me.BunifuCheckbox1.ChechedOffColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(135, Byte), Integer), CType(CType(140, Byte), Integer))
-        Me.BunifuCheckbox1.Checked = True
-        Me.BunifuCheckbox1.CheckedOnColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(117, Byte), Integer))
-        Me.BunifuCheckbox1.ForeColor = System.Drawing.Color.White
-        Me.BunifuCheckbox1.Location = New System.Drawing.Point(144, 321)
-        Me.BunifuCheckbox1.Name = "BunifuCheckbox1"
-        Me.BunifuCheckbox1.Size = New System.Drawing.Size(20, 20)
-        Me.BunifuCheckbox1.TabIndex = 5
+        Me.checkbox_liyekiyumuge.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(135, Byte), Integer), CType(CType(140, Byte), Integer))
+        Me.checkbox_liyekiyumuge.ChechedOffColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(135, Byte), Integer), CType(CType(140, Byte), Integer))
+        Me.checkbox_liyekiyumuge.Checked = False
+        Me.checkbox_liyekiyumuge.CheckedOnColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(117, Byte), Integer))
+        Me.checkbox_liyekiyumuge.ForeColor = System.Drawing.Color.White
+        Me.checkbox_liyekiyumuge.Location = New System.Drawing.Point(144, 321)
+        Me.checkbox_liyekiyumuge.Name = "checkbox_liyekiyumuge"
+        Me.checkbox_liyekiyumuge.Size = New System.Drawing.Size(20, 20)
+        Me.checkbox_liyekiyumuge.TabIndex = 5
         '
-        'BunifuCheckbox2
+        'checkbox_mudhaluge
         '
-        Me.BunifuCheckbox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(117, Byte), Integer))
-        Me.BunifuCheckbox2.ChechedOffColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(135, Byte), Integer), CType(CType(140, Byte), Integer))
-        Me.BunifuCheckbox2.Checked = True
-        Me.BunifuCheckbox2.CheckedOnColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(117, Byte), Integer))
-        Me.BunifuCheckbox2.ForeColor = System.Drawing.Color.White
-        Me.BunifuCheckbox2.Location = New System.Drawing.Point(258, 322)
-        Me.BunifuCheckbox2.Name = "BunifuCheckbox2"
-        Me.BunifuCheckbox2.Size = New System.Drawing.Size(20, 20)
-        Me.BunifuCheckbox2.TabIndex = 5
+        Me.checkbox_mudhaluge.BackColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(135, Byte), Integer), CType(CType(140, Byte), Integer))
+        Me.checkbox_mudhaluge.ChechedOffColor = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(135, Byte), Integer), CType(CType(140, Byte), Integer))
+        Me.checkbox_mudhaluge.Checked = False
+        Me.checkbox_mudhaluge.CheckedOnColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(117, Byte), Integer))
+        Me.checkbox_mudhaluge.ForeColor = System.Drawing.Color.White
+        Me.checkbox_mudhaluge.Location = New System.Drawing.Point(258, 322)
+        Me.checkbox_mudhaluge.Name = "checkbox_mudhaluge"
+        Me.checkbox_mudhaluge.Size = New System.Drawing.Size(20, 20)
+        Me.checkbox_mudhaluge.TabIndex = 5
         '
         'Label2
         '
@@ -210,23 +198,44 @@ Partial Class Product_Form
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.combo_unit)
         Me.Panel2.Controls.Add(Me.Btn_delete)
         Me.Panel2.Controls.Add(Me.btn_update)
         Me.Panel2.Controls.Add(Me.btn_add)
         Me.Panel2.Controls.Add(Me.txtbox_details)
         Me.Panel2.Controls.Add(Me.txtbox_eng_name)
-        Me.Panel2.Controls.Add(Me.label_unit)
         Me.Panel2.Controls.Add(Me.Label_Liyekiyun)
-        Me.Panel2.Controls.Add(Me.BunifuCheckbox2)
-        Me.Panel2.Controls.Add(Me.BunifuDropdown1)
+        Me.Panel2.Controls.Add(Me.checkbox_mudhaluge)
         Me.Panel2.Controls.Add(Me.txtbox_dhiv_name)
         Me.Panel2.Controls.Add(Me.Label2)
-        Me.Panel2.Controls.Add(Me.BunifuCheckbox1)
+        Me.Panel2.Controls.Add(Me.checkbox_liyekiyumuge)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(317, 553)
         Me.Panel2.TabIndex = 8
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(28, 18)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 13)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "Label1"
+        '
+        'combo_unit
+        '
+        Me.combo_unit.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
+        Me.combo_unit.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
+        Me.combo_unit.BorderStyle = Infragistics.Win.UIElementBorderStyle.Raised
+        Me.combo_unit.Font = New System.Drawing.Font("Century Gothic", 11.25!)
+        Me.combo_unit.Location = New System.Drawing.Point(40, 262)
+        Me.combo_unit.Name = "combo_unit"
+        Me.combo_unit.Size = New System.Drawing.Size(124, 27)
+        Me.combo_unit.TabIndex = 8
+        Me.combo_unit.Text = "Unit"
         '
         'Btn_delete
         '
@@ -296,18 +305,10 @@ Partial Class Product_Form
         Me.btn_update.Textcolor = System.Drawing.Color.White
         Me.btn_update.TextFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
-        'label_unit
-        '
-        Me.label_unit.AutoSize = True
-        Me.label_unit.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.label_unit.Location = New System.Drawing.Point(36, 267)
-        Me.label_unit.Name = "label_unit"
-        Me.label_unit.Size = New System.Drawing.Size(36, 19)
-        Me.label_unit.TabIndex = 4
-        Me.label_unit.Text = "Unit"
-        '
         'datagrid_product
         '
+        Me.datagrid_product.AllowUserToAddRows = False
+        Me.datagrid_product.AllowUserToDeleteRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.datagrid_product.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
@@ -357,9 +358,9 @@ Partial Class Product_Form
         Me.BunifuCustomLabel1.Font = New System.Drawing.Font("Calibri", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuCustomLabel1.Location = New System.Drawing.Point(417, 12)
         Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
-        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(146, 26)
+        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(102, 26)
         Me.BunifuCustomLabel1.TabIndex = 19
-        Me.BunifuCustomLabel1.Text = "ADD PRODUCT "
+        Me.BunifuCustomLabel1.Text = "PRODUCT "
         '
         'Panel3
         '
@@ -392,6 +393,7 @@ Partial Class Product_Form
         Me.Text = "Product_Form"
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.combo_unit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.datagrid_product, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -405,19 +407,19 @@ Partial Class Product_Form
     Friend WithEvents txtbox_eng_name As ns1.BunifuMaterialTextbox
     Friend WithEvents txtbox_dhiv_name As ns1.BunifuMaterialTextbox
     Friend WithEvents txtbox_details As ns1.BunifuMaterialTextbox
-    Friend WithEvents BunifuDropdown1 As ns1.BunifuDropdown
     Friend WithEvents Label_Liyekiyun As Label
-    Friend WithEvents BunifuCheckbox2 As ns1.BunifuCheckbox
-    Friend WithEvents BunifuCheckbox1 As ns1.BunifuCheckbox
+    Friend WithEvents checkbox_mudhaluge As ns1.BunifuCheckbox
+    Friend WithEvents checkbox_liyekiyumuge As ns1.BunifuCheckbox
     Friend WithEvents btn_add As ns1.BunifuFlatButton
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Btn_delete As ns1.BunifuFlatButton
     Friend WithEvents btn_update As ns1.BunifuFlatButton
-    Friend WithEvents label_unit As Label
     Friend WithEvents datagrid_product As ns1.BunifuCustomDataGrid
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents BunifuCustomLabel1 As ns1.BunifuCustomLabel
+    Friend WithEvents combo_unit As Infragistics.Win.UltraWinEditors.UltraComboEditor
+    Friend WithEvents Label1 As Label
 End Class
