@@ -17,6 +17,8 @@ Public Class Product_Form
         Label1.Text = datagrid_product.RowCount
         Label1.Hide()
 
+        Call clear_fields()
+
 
     End Sub
 
@@ -50,7 +52,7 @@ Public Class Product_Form
         datagrid_product.Columns.Item(0).HeaderText = "id"
         datagrid_product.Columns.Item(1).HeaderText = "Name Eng"
         datagrid_product.Columns.Item(2).HeaderText = "Name Dhiv"
-        datagrid_product.Columns.Item(3).HeaderText = "description"
+        datagrid_product.Columns.Item(3).HeaderText = "Bar Code"
         datagrid_product.Columns.Item(4).HeaderText = "Unit"
         datagrid_product.Columns.Item(5).HeaderText = "Category"
         datagrid_product.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.ColumnHeader)
@@ -94,7 +96,7 @@ Public Class Product_Form
             txtbox_details.Focus()
             validate_counter = 1
 
-        ElseIf combo_unit.SelectedText = "Unit" Then
+        ElseIf combo_unit.Text = "Unit" Then
             MessageBox.Show("Plase Select A Unit")
             combo_unit.Focus()
             validate_counter = 1
@@ -106,7 +108,7 @@ Public Class Product_Form
             validate_counter = 1
 
 
-        ElseIf datagrid_product.Rows(datagrid_product.CurrentRow.Index).Cells(1).Value = txtbox_eng_name.Text Or
+        ElseIf datagrid_product.Rows(datagrid_product.CurrentRow.Index).Cells(1).Value = txtbox_eng_name.Text And
            datagrid_product.Rows(datagrid_product.CurrentRow.Index).Cells(5).Value = checked_cat Then
 
 
@@ -117,7 +119,7 @@ Public Class Product_Form
 
 
 
-            MessageBox.Show("Already Exist")
+
 
             validate_counter = 2
 
@@ -148,7 +150,9 @@ Public Class Product_Form
 
     Private Sub btn_add_Click(sender As Object, e As EventArgs) Handles btn_add.Click
 
+
         Call validate()
+        Call check_datagrid_duplicate()
 
         If validate_counter = 0 Then
 
@@ -158,6 +162,8 @@ Public Class Product_Form
             Call add_product_cat()
 
             Call load_datagrid()
+
+
 
         Else
 
@@ -304,6 +310,7 @@ Public Class Product_Form
 
         validate_counter = 0
         Call validate()
+        Call check_datagrid_duplicate()
 
         If validate_counter = 1 Then
         Else
@@ -409,6 +416,7 @@ Public Class Product_Form
             Call delete_product_cat()
             Call delete_product()
             Call load_datagrid()
+            Call clear_fields()
 
         End If
 
@@ -480,5 +488,38 @@ Public Class Product_Form
 
         End Try
         con.Close()
+    End Sub
+
+
+
+    Sub clear_fields()
+
+        txtbox_details.Text = Nothing
+        txtbox_dhiv_name.Text = Nothing
+        txtbox_eng_name.Text = Nothing
+        combo_unit.Text = "Unit"
+
+        checkbox_liyekiyumuge.Checked = False
+        checkbox_mudhaluge.Checked = False
+
+
+
+    End Sub
+
+
+    Sub check_datagrid_duplicate()
+
+        For index = 0 To datagrid_product.RowCount - 1
+            If datagrid_product.Rows(index).Cells(3).Value = txtbox_details.Text Then
+                validate_counter = 1
+                MessageBox.Show("item already exist")
+
+
+            End If
+        Next
+
+
+
+
     End Sub
 End Class

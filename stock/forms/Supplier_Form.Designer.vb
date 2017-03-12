@@ -22,18 +22,20 @@ Partial Class Supplier_Form
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BunifuCustomLabel1 = New ns1.BunifuCustomLabel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Btn_delete = New ns1.BunifuFlatButton()
         Me.btn_update = New ns1.BunifuFlatButton()
         Me.btn_add = New ns1.BunifuFlatButton()
         Me.txtbox_details = New ns1.BunifuMaterialTextbox()
         Me.txtbox_eng_name = New ns1.BunifuMaterialTextbox()
-        Me.BunifuCustomLabel1 = New ns1.BunifuCustomLabel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.DataGrid_supplier = New ns1.BunifuCustomDataGrid()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtbox_supplier_dhiv_name = New ns1.BunifuMaterialTextbox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -49,8 +51,20 @@ Partial Class Supplier_Form
         Me.Panel1.Size = New System.Drawing.Size(940, 48)
         Me.Panel1.TabIndex = 0
         '
+        'BunifuCustomLabel1
+        '
+        Me.BunifuCustomLabel1.AutoSize = True
+        Me.BunifuCustomLabel1.Font = New System.Drawing.Font("Calibri", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(397, 11)
+        Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
+        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(95, 26)
+        Me.BunifuCustomLabel1.TabIndex = 20
+        Me.BunifuCustomLabel1.Text = "SUPPLIER"
+        '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.txtbox_supplier_dhiv_name)
+        Me.Panel2.Controls.Add(Me.Label1)
         Me.Panel2.Controls.Add(Me.Btn_delete)
         Me.Panel2.Controls.Add(Me.btn_update)
         Me.Panel2.Controls.Add(Me.btn_add)
@@ -61,15 +75,6 @@ Partial Class Supplier_Form
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(338, 551)
         Me.Panel2.TabIndex = 1
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.DataGrid_supplier)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(338, 48)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(602, 551)
-        Me.Panel3.TabIndex = 2
         '
         'Btn_delete
         '
@@ -92,7 +97,7 @@ Partial Class Supplier_Form
         Me.Btn_delete.IconVisible = True
         Me.Btn_delete.IconZoom = 90.0R
         Me.Btn_delete.IsTab = False
-        Me.Btn_delete.Location = New System.Drawing.Point(37, 322)
+        Me.Btn_delete.Location = New System.Drawing.Point(35, 379)
         Me.Btn_delete.Name = "Btn_delete"
         Me.Btn_delete.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.Btn_delete.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
@@ -126,7 +131,7 @@ Partial Class Supplier_Form
         Me.btn_update.IconVisible = True
         Me.btn_update.IconZoom = 90.0R
         Me.btn_update.IsTab = False
-        Me.btn_update.Location = New System.Drawing.Point(35, 273)
+        Me.btn_update.Location = New System.Drawing.Point(33, 330)
         Me.btn_update.Name = "btn_update"
         Me.btn_update.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.btn_update.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
@@ -160,7 +165,7 @@ Partial Class Supplier_Form
         Me.btn_add.IconVisible = True
         Me.btn_add.IconZoom = 90.0R
         Me.btn_add.IsTab = False
-        Me.btn_add.Location = New System.Drawing.Point(35, 223)
+        Me.btn_add.Location = New System.Drawing.Point(33, 280)
         Me.btn_add.Name = "btn_add"
         Me.btn_add.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.btn_add.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
@@ -176,7 +181,7 @@ Partial Class Supplier_Form
         'txtbox_details
         '
         Me.txtbox_details.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtbox_details.Font = New System.Drawing.Font("Century Gothic", 11.25!)
+        Me.txtbox_details.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
         Me.txtbox_details.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtbox_details.HintForeColor = System.Drawing.Color.Empty
         Me.txtbox_details.HintText = "Contact #"
@@ -185,7 +190,7 @@ Partial Class Supplier_Form
         Me.txtbox_details.LineIdleColor = System.Drawing.Color.Gray
         Me.txtbox_details.LineMouseHoverColor = System.Drawing.Color.Blue
         Me.txtbox_details.LineThickness = 4
-        Me.txtbox_details.Location = New System.Drawing.Point(40, 105)
+        Me.txtbox_details.Location = New System.Drawing.Point(35, 163)
         Me.txtbox_details.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtbox_details.Name = "txtbox_details"
         Me.txtbox_details.Size = New System.Drawing.Size(227, 52)
@@ -195,7 +200,7 @@ Partial Class Supplier_Form
         'txtbox_eng_name
         '
         Me.txtbox_eng_name.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtbox_eng_name.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbox_eng_name.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbox_eng_name.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtbox_eng_name.HintForeColor = System.Drawing.Color.Empty
         Me.txtbox_eng_name.HintText = "Suppplier Name"
@@ -211,31 +216,30 @@ Partial Class Supplier_Form
         Me.txtbox_eng_name.TabIndex = 10
         Me.txtbox_eng_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
-        'BunifuCustomLabel1
+        'Panel3
         '
-        Me.BunifuCustomLabel1.AutoSize = True
-        Me.BunifuCustomLabel1.Font = New System.Drawing.Font("Calibri", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(397, 11)
-        Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
-        Me.BunifuCustomLabel1.Size = New System.Drawing.Size(95, 26)
-        Me.BunifuCustomLabel1.TabIndex = 20
-        Me.BunifuCustomLabel1.Text = "SUPPLIER"
+        Me.Panel3.Controls.Add(Me.DataGrid_supplier)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.Location = New System.Drawing.Point(338, 48)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(602, 551)
+        Me.Panel3.TabIndex = 2
         '
         'DataGrid_supplier
         '
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.DataGrid_supplier.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.DataGrid_supplier.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGrid_supplier.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.DataGrid_supplier.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGrid_supplier.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGrid_supplier.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGrid_supplier.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGrid_supplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGrid_supplier.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGrid_supplier.DoubleBuffered = True
@@ -247,6 +251,34 @@ Partial Class Supplier_Form
         Me.DataGrid_supplier.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DataGrid_supplier.Size = New System.Drawing.Size(602, 551)
         Me.DataGrid_supplier.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(274, 3)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 13)
+        Me.Label1.TabIndex = 19
+        Me.Label1.Text = "Label1"
+        '
+        'txtbox_supplier_dhiv_name
+        '
+        Me.txtbox_supplier_dhiv_name.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtbox_supplier_dhiv_name.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.txtbox_supplier_dhiv_name.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtbox_supplier_dhiv_name.HintForeColor = System.Drawing.Color.Empty
+        Me.txtbox_supplier_dhiv_name.HintText = "Contact #"
+        Me.txtbox_supplier_dhiv_name.isPassword = False
+        Me.txtbox_supplier_dhiv_name.LineFocusedColor = System.Drawing.Color.Blue
+        Me.txtbox_supplier_dhiv_name.LineIdleColor = System.Drawing.Color.Gray
+        Me.txtbox_supplier_dhiv_name.LineMouseHoverColor = System.Drawing.Color.Blue
+        Me.txtbox_supplier_dhiv_name.LineThickness = 4
+        Me.txtbox_supplier_dhiv_name.Location = New System.Drawing.Point(40, 101)
+        Me.txtbox_supplier_dhiv_name.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtbox_supplier_dhiv_name.Name = "txtbox_supplier_dhiv_name"
+        Me.txtbox_supplier_dhiv_name.Size = New System.Drawing.Size(227, 52)
+        Me.txtbox_supplier_dhiv_name.TabIndex = 20
+        Me.txtbox_supplier_dhiv_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'Supplier_Form
         '
@@ -262,6 +294,7 @@ Partial Class Supplier_Form
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         CType(Me.DataGrid_supplier, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -278,4 +311,6 @@ Partial Class Supplier_Form
     Friend WithEvents txtbox_eng_name As ns1.BunifuMaterialTextbox
     Friend WithEvents BunifuCustomLabel1 As ns1.BunifuCustomLabel
     Friend WithEvents DataGrid_supplier As ns1.BunifuCustomDataGrid
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtbox_supplier_dhiv_name As ns1.BunifuMaterialTextbox
 End Class
