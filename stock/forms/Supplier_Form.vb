@@ -11,7 +11,7 @@ Public Class Supplier_Form
     Sub load_datgrid()
         Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
 
-        Dim cmd As New SqlClient.SqlCommand("select supplier_id,supplier_name,supplier_contact FROM supplier", con)
+        Dim cmd As New SqlClient.SqlCommand("select supplier_id,supplier_name,supplier_dhiv_name,supplier_contact FROM supplier", con)
 
         Dim adapter As New SqlDataAdapter()
 
@@ -28,7 +28,8 @@ Public Class Supplier_Form
         DataGrid_supplier.DataSource = table
         DataGrid_supplier.Columns.Item(0).HeaderText = "Supplier ID"
         DataGrid_supplier.Columns.Item(1).HeaderText = "Supplier Name"
-        DataGrid_supplier.Columns.Item(2).HeaderText = "Contact"
+        DataGrid_supplier.Columns.Item(2).HeaderText = "SUpplier Dhivehi Name"
+        DataGrid_supplier.Columns.Item(3).HeaderText = "Contact"
         DataGrid_supplier.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.ColumnHeader)
 
 
@@ -50,6 +51,8 @@ Public Class Supplier_Form
             Label1.Text = DataGrid_supplier.RowCount + 1
 
             Call load_datgrid()
+            Call clear_fields()
+
         Else
             validate_counter = 0
 
@@ -140,6 +143,119 @@ Public Class Supplier_Form
 
         End Try
         con.Close()
+
+
+
+    End Sub
+
+    Private Sub btn_update_Click(sender As Object, e As EventArgs) Handles btn_update.Click
+        validate_counter = 0
+        Call validate()
+
+
+        If validate_counter = 1 Then
+        Else
+            Call update_supplier()
+
+
+            Call load_datgrid()
+            Call clear_fields()
+
+        End If
+    End Sub
+
+
+
+
+    Sub update_supplier()
+        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
+        con.Open()
+
+
+
+        Dim cmd As New SqlClient.SqlCommand(" UPDATE supplier SET supplier_name = 
+        @supplier_name, supplier_dhiv_name = @supplier_dhiv_name, supplier_contact = @supplier_contact
+        WHERE (supplier_id = @supplier_id)", con)
+
+        cmd.Parameters.Add("@supplier_name", SqlDbType.NVarChar).Value = txtbox_eng_name.Text
+        cmd.Parameters.Add("@supplier_dhiv_name", SqlDbType.NVarChar).Value = txtbox_supplier_dhiv_name.Text
+        cmd.Parameters.Add("@supplier_contact", SqlDbType.Int).Value = txtbox_details.Text
+        cmd.Parameters.Add("@supplier_id", SqlDbType.Int).Value = Label1.Text
+
+
+
+        Try
+            cmd.ExecuteNonQuery()
+
+        Catch ex As Exception
+
+        End Try
+        con.Close()
+
+
+    End Sub
+
+    Private Sub DataGrid_supplier_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGrid_supplier.RowHeaderMouseClick
+        Label1.Text = DataGrid_supplier.Rows(e.RowIndex).Cells(0).Value
+        txtbox_eng_name.Text = DataGrid_supplier.Rows(e.RowIndex).Cells(1).Value
+        txtbox_supplier_dhiv_name.Text = DataGrid_supplier.Rows(e.RowIndex).Cells(2).Value
+        txtbox_details.Text = DataGrid_supplier.Rows(e.RowIndex).Cells(3).Value
+    End Sub
+
+
+    Sub delete_supplier()
+        Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
+        con.Open()
+
+
+
+        Dim cmd As New SqlClient.SqlCommand("DELETE  From supplier Where (supplier_id = @supplier_id)", con)
+
+
+
+
+        cmd.Parameters.Add("@supplier_id", SqlDbType.Int).Value = Label1.Text
+
+
+
+        Try
+            cmd.ExecuteNonQuery()
+
+        Catch ex As Exception
+
+        End Try
+        con.Close()
+
+
+
+    End Sub
+
+    Private Sub Btn_delete_Click(sender As Object, e As EventArgs) Handles Btn_delete.Click
+        Dim result As Integer = MessageBox.Show("Deleting the supplier might delete the existing records associated with this supplier  DO NOT DELETE unless you are sure", "ARE YOU SURE? ", MessageBoxButtons.YesNoCancel)
+        If result = DialogResult.Cancel Then
+
+        ElseIf result = DialogResult.No Then
+
+        ElseIf result = DialogResult.Yes Then
+
+
+            Call delete_supplier()
+            Call load_datgrid()
+            Call clear_fields()
+
+        End If
+    End Sub
+
+
+
+    Sub clear_fields()
+
+        txtbox_details.Text = Nothing
+        txtbox_eng_name.Text = Nothing
+        txtbox_supplier_dhiv_name.Text = Nothing
+        Label1.Text = "label1"
+
+
 
 
 

@@ -22,11 +22,13 @@ Partial Class Supplier_Form
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.BunifuCustomLabel1 = New ns1.BunifuCustomLabel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.txtbox_supplier_dhiv_name = New ns1.BunifuMaterialTextbox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Btn_delete = New ns1.BunifuFlatButton()
         Me.btn_update = New ns1.BunifuFlatButton()
         Me.btn_add = New ns1.BunifuFlatButton()
@@ -34,8 +36,6 @@ Partial Class Supplier_Form
         Me.txtbox_eng_name = New ns1.BunifuMaterialTextbox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.DataGrid_supplier = New ns1.BunifuCustomDataGrid()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtbox_supplier_dhiv_name = New ns1.BunifuMaterialTextbox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -75,6 +75,36 @@ Partial Class Supplier_Form
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(338, 551)
         Me.Panel2.TabIndex = 1
+        '
+        'txtbox_supplier_dhiv_name
+        '
+        Me.txtbox_supplier_dhiv_name.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtbox_supplier_dhiv_name.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
+        Me.txtbox_supplier_dhiv_name.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtbox_supplier_dhiv_name.HintForeColor = System.Drawing.Color.Empty
+        Me.txtbox_supplier_dhiv_name.HintText = "ދިވެހި ނަން"
+        Me.txtbox_supplier_dhiv_name.isPassword = False
+        Me.txtbox_supplier_dhiv_name.LineFocusedColor = System.Drawing.Color.Blue
+        Me.txtbox_supplier_dhiv_name.LineIdleColor = System.Drawing.Color.Gray
+        Me.txtbox_supplier_dhiv_name.LineMouseHoverColor = System.Drawing.Color.Blue
+        Me.txtbox_supplier_dhiv_name.LineThickness = 4
+        Me.txtbox_supplier_dhiv_name.Location = New System.Drawing.Point(40, 101)
+        Me.txtbox_supplier_dhiv_name.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtbox_supplier_dhiv_name.Name = "txtbox_supplier_dhiv_name"
+        Me.txtbox_supplier_dhiv_name.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.txtbox_supplier_dhiv_name.Size = New System.Drawing.Size(227, 52)
+        Me.txtbox_supplier_dhiv_name.TabIndex = 20
+        Me.txtbox_supplier_dhiv_name.Text = "Contact #"
+        Me.txtbox_supplier_dhiv_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(274, 3)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 13)
+        Me.Label1.TabIndex = 19
+        Me.Label1.Text = "Label1"
         '
         'Btn_delete
         '
@@ -227,19 +257,19 @@ Partial Class Supplier_Form
         '
         'DataGrid_supplier
         '
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.DataGrid_supplier.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.DataGrid_supplier.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGrid_supplier.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.DataGrid_supplier.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGrid_supplier.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.SeaGreen
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGrid_supplier.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGrid_supplier.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.DataGrid_supplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGrid_supplier.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGrid_supplier.DoubleBuffered = True
@@ -251,34 +281,6 @@ Partial Class Supplier_Form
         Me.DataGrid_supplier.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.DataGrid_supplier.Size = New System.Drawing.Size(602, 551)
         Me.DataGrid_supplier.TabIndex = 1
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(274, 3)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 13)
-        Me.Label1.TabIndex = 19
-        Me.Label1.Text = "Label1"
-        '
-        'txtbox_supplier_dhiv_name
-        '
-        Me.txtbox_supplier_dhiv_name.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtbox_supplier_dhiv_name.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
-        Me.txtbox_supplier_dhiv_name.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtbox_supplier_dhiv_name.HintForeColor = System.Drawing.Color.Empty
-        Me.txtbox_supplier_dhiv_name.HintText = "Contact #"
-        Me.txtbox_supplier_dhiv_name.isPassword = False
-        Me.txtbox_supplier_dhiv_name.LineFocusedColor = System.Drawing.Color.Blue
-        Me.txtbox_supplier_dhiv_name.LineIdleColor = System.Drawing.Color.Gray
-        Me.txtbox_supplier_dhiv_name.LineMouseHoverColor = System.Drawing.Color.Blue
-        Me.txtbox_supplier_dhiv_name.LineThickness = 4
-        Me.txtbox_supplier_dhiv_name.Location = New System.Drawing.Point(40, 101)
-        Me.txtbox_supplier_dhiv_name.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.txtbox_supplier_dhiv_name.Name = "txtbox_supplier_dhiv_name"
-        Me.txtbox_supplier_dhiv_name.Size = New System.Drawing.Size(227, 52)
-        Me.txtbox_supplier_dhiv_name.TabIndex = 20
-        Me.txtbox_supplier_dhiv_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         '
         'Supplier_Form
         '

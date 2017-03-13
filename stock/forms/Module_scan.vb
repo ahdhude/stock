@@ -20,4 +20,5 @@
     Public product_form As New Product_Form
     Public supplier_form As New Supplier_Form
 
+    Public po_form As New Po_form
 End Module

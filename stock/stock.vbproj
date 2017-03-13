@@ -121,6 +121,12 @@
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="forms\Module_scan.vb" />
+    <Compile Include="forms\Po_form.Designer.vb">
+      <DependentUpon>Po_form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Po_form.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\Product_Form.Designer.vb">
       <DependentUpon>Product_Form.vb</DependentUpon>
     </Compile>
@@ -181,6 +187,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="forms\Po_form.resx">
+      <DependentUpon>Po_form.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forms\Product_Form.resx">
       <DependentUpon>Product_Form.vb</DependentUpon>
     </EmbeddedResource>
@@ -235,9 +244,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="datbase.txt" />
+    <None Include="Resources\Shopping Cart_52px.png" />
     <None Include="Resources\Minus_48px.png" />
     <None Include="Resources\Plus_48px.png" />
     <None Include="Resources\Document_64px.png" />
+    <None Include="Resources\Barcode_64px.png" />
     <Content Include="Resources\J2K_48px.png" />
     <None Include="Resources\J2K_48px1.png" />
     <None Include="packages.config" />

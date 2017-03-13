@@ -121,29 +121,6 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="BunifuFlatButton3.Iconimage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAPtSURBVHhe7Zq9jhxVEEbXge2EP0u8AgE2IkEWuWMLDKQGHocEGSTAkSUkXsGJLRLegR8BIicg
-        IwALg4av7j39Vc/2zE5PT/vOCPpIpd0691ZV9/XM7MyuzxYWFhYWFhYWVicGl9UO5p4MXFY7mHsycFnt
-        YO7JwGW1g7kG3QzGGnQ7mGvQzWCsQbeDuQbdDMYadDuYa9DNYKxBt4O5Bt0Mxk7hL8Ud2kyn9krQzWDs
-        VP5W3KXVNGqfBN0Mxh5CPBLepd3+1B4JuhmMPZTph1DrE3QzGGvQF6Jt7ynipvvE0+F9toyn1iboZjDW
-        oHeirfMcQq1L0AMvvlJcrt+auIDblERN7FnjIh+QGvQotH3bIXzAlt3UmgQ98GLTAQR/Km5R0/QAApUc
-        dgh1f4K2Jy0o7Q4gBl5SfFmy1eoB692Nrg1XvtEHeIPeC5VNP4S6N0HbkxaUdgfwVPGG4mHJjnwAgUq3
-        HcKHbNlM3ZegB17ETWx6CvyqeIWa7kbNRT4gNehJqHzTIfyj2H4IdU+CHnix6QD+UNykZOuN6kuTAwjU
-        Yr9DqOsJ2p60oLQ7gGj4hK+vsxzr3Y02fwr0UZvxh1DXErQ9aUFp/0XwXv129ZDlWD+JAwjU6q4iXgP6
-        PGU5YcGg7UkLSvsH8LLi95KtVm+yvvGhri8bfUBq0LOgdnEIa7CU4A3anrSg1AdA/lFNV4/IT+oAAtoa
-        dII36GYw1qBng7YGneANuhmMNejZoK1BJ3iDbgZjDXo2aGvQCd6gm8FYg54N2hp0gjfoZjDWoGeDtgad
-        4A26GYw16NmgrUEneINuBmMNejZoa9AJ3qCbwViDng3aGnSCN+gBWnpNEW9/v1X8RnyHu8G2vVHtGugB
-        Wpo0X2troBO8QRupK4rPFOffV/eJtc8VlykbTanugTZSB80vqz3QCd6gC0pj+NdlYRyPFVcoH0UtS9AF
-        pQfPrzpBJ3iDLii9X+1e3Kd8FNQYdEHpwfNxBp3gDTr8DcX5h93PijuK+CQY8Y7iF0WfqLlOm53UkgQ9
-        2/yqEnSCN+jwn1ZjflBcY9mEU/wUG3rcY3kn7Dfo2eaTG3SCH8NblAzQWvxLPGtmmU9Jgh/Dc5QM0NoL
-        dcszZZb5lCT4MfzvD+BtSgZorcVTYJb5lOxGe7tfenb8qHiJZSP3ouL8i9DHLE9GPY46PxpfV2z7MfS8
-        Ih52cfLh+sRfjV6lzWTU46jzC2r0SWm5H6N/BO5CvY46Py4gfgv8qLQdxzeKvd4KX4R6HXV+IRoqvlCc
-        fzj2ibX4wHKVstlQz6PON2refRyNj6DxfwIivsdN/jg8Fs046vyFhYWFhYWF/wpnZ/8Ccf5sY7HCw7IA
-        AAAASUVORK5CYII=
-</value>
-  </data>
   <data name="BunifuFlatButton2.Iconimage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAA5pJREFUaEPt
