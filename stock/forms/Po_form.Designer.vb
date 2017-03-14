@@ -46,6 +46,7 @@ Partial Class Po_form
         Me.upload_path = New System.Windows.Forms.LinkLabel()
         Me.btn_upload = New ns1.BunifuFlatButton()
         Me.btn_add = New ns1.BunifuFlatButton()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -108,6 +109,7 @@ Partial Class Po_form
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.txtbox_unit_price)
         Me.GroupBox2.Controls.Add(Me.textbox_qty_giv)
         Me.GroupBox2.Controls.Add(Me.combo_product)
@@ -408,6 +410,15 @@ Partial Class Po_form
         Me.btn_add.Textcolor = System.Drawing.Color.White
         Me.btn_add.TextFont = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(448, 8)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 13)
+        Me.Label1.TabIndex = 31
+        Me.Label1.Text = "Label1"
+        '
         'Po_form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -427,6 +438,7 @@ Partial Class Po_form
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -458,4 +470,5 @@ Partial Class Po_form
     Friend WithEvents textbox_qty_giv As ns1.BunifuMaterialTextbox
     Friend WithEvents upload_path As LinkLabel
     Friend WithEvents btn_upload As ns1.BunifuFlatButton
+    Friend WithEvents Label1 As Label
 End Class
