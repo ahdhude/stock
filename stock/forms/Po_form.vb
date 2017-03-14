@@ -187,7 +187,7 @@ Public Class Po_form
     End Sub
 
     Private Sub btn_upload_Click(sender As Object, e As EventArgs) Handles btn_upload.Click
-        If textbox_po_num.Text = Nothing Then
+        If textbox_po_num.Text = Nothing Or textbox_po_num.Text = "PO Number" Then
 
             MsgBox("please enter a valid PO number First")
             textbox_po_num.Focus()

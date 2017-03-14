@@ -99,6 +99,7 @@ Public Class Scan_form
         Call grf_newname()
 
         If Me.Twain321.SelectSource = Nothing Then
+            Exit Sub
 
         Else
             Try
