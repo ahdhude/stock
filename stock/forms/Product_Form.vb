@@ -15,11 +15,14 @@ Public Class Product_Form
         Call load_datagrid()
         Call load_units()
         Label1.Text = datagrid_product.RowCount
-        Label1.Hide()
+        'Label1.Hide()
 
+
+
+
+
+        Call select_lastrow()
         Call clear_fields()
-
-
     End Sub
 
 
@@ -150,7 +153,7 @@ Public Class Product_Form
 
     Private Sub btn_add_Click(sender As Object, e As EventArgs) Handles btn_add.Click
 
-
+        Label1.Text = datagrid_product.RowCount + 1
         Call validate()
         Call check_datagrid_duplicate()
 
@@ -158,15 +161,16 @@ Public Class Product_Form
 
 
             Call add_product()
-            Label1.Text = datagrid_product.RowCount + 1
+
             Call add_product_cat()
 
             Call load_datagrid()
 
+            Call select_lastrow()
 
 
         Else
-
+            Label1.Text = datagrid_product.RowCount - 1
             validate_counter = 0
 
         End If
@@ -510,7 +514,7 @@ Public Class Product_Form
     Sub check_datagrid_duplicate()
 
         For index = 0 To datagrid_product.RowCount - 1
-            If datagrid_product.Rows(index).Cells(3).Value = txtbox_details.Text Then
+            If datagrid_product.Rows(index).Cells(3).Value = txtbox_details.Text Or datagrid_product.Rows(index).Cells(0).Value = Label1.Text Then
                 validate_counter = 1
                 MessageBox.Show("item already exist")
 
@@ -519,6 +523,41 @@ Public Class Product_Form
         Next
 
 
+
+
+    End Sub
+
+
+
+    Sub select_lastrow()
+        datagrid_product.ClearSelection()
+
+
+        datagrid_product.CurrentCell = datagrid_product.Rows(datagrid_product.RowCount - 1).Cells(0)
+
+        datagrid_product.CurrentCell.Selected = True
+
+
+
+        checkbox_liyekiyumuge.Checked = False
+        checkbox_mudhaluge.Checked = False
+
+        Label1.Text = datagrid_product.Rows(datagrid_product.RowCount - 1).Cells(0).Value
+        txtbox_eng_name.Text = datagrid_product.Rows(datagrid_product.RowCount - 1).Cells(1).Value
+        txtbox_dhiv_name.Text = datagrid_product.Rows(datagrid_product.RowCount - 1).Cells(2).Value
+        txtbox_details.Text = datagrid_product.Rows(datagrid_product.RowCount - 1).Cells(3).Value
+
+
+        combo_unit.SelectedIndex = combo_unit.FindString(datagrid_product.Rows(datagrid_product.RowCount - 1).Cells(4).Value)
+
+        If datagrid_product.Rows(datagrid_product.RowCount - 1).Cells(5).Value = "Liyekiyumuge Stock" Then
+
+            checkbox_liyekiyumuge.Checked = True
+            checked_cat = "Liyekiyumuge Stock"
+        Else
+            checkbox_mudhaluge.Checked = True
+            checked_cat = "Mudhaluge Stock"
+        End If
 
 
     End Sub

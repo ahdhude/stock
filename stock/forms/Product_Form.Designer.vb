@@ -61,7 +61,7 @@ Partial Class Product_Form
         'txtbox_eng_name
         '
         Me.txtbox_eng_name.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtbox_eng_name.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbox_eng_name.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbox_eng_name.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtbox_eng_name.HintForeColor = System.Drawing.Color.Empty
         Me.txtbox_eng_name.HintText = "Product Name"
@@ -80,7 +80,7 @@ Partial Class Product_Form
         'txtbox_dhiv_name
         '
         Me.txtbox_dhiv_name.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtbox_dhiv_name.Font = New System.Drawing.Font("Faruma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbox_dhiv_name.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtbox_dhiv_name.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtbox_dhiv_name.HintForeColor = System.Drawing.Color.Empty
         Me.txtbox_dhiv_name.HintText = ""
@@ -101,7 +101,7 @@ Partial Class Product_Form
         'txtbox_details
         '
         Me.txtbox_details.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtbox_details.Font = New System.Drawing.Font("Century Gothic", 11.25!)
+        Me.txtbox_details.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
         Me.txtbox_details.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtbox_details.HintForeColor = System.Drawing.Color.Empty
         Me.txtbox_details.HintText = "Barcode"
@@ -230,10 +230,10 @@ Partial Class Product_Form
         Me.combo_unit.AutoCompleteMode = Infragistics.Win.AutoCompleteMode.Suggest
         Me.combo_unit.AutoSuggestFilterMode = Infragistics.Win.AutoSuggestFilterMode.Contains
         Me.combo_unit.BorderStyle = Infragistics.Win.UIElementBorderStyle.Raised
-        Me.combo_unit.Font = New System.Drawing.Font("Century Gothic", 11.25!)
+        Me.combo_unit.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!)
         Me.combo_unit.Location = New System.Drawing.Point(40, 262)
         Me.combo_unit.Name = "combo_unit"
-        Me.combo_unit.Size = New System.Drawing.Size(124, 27)
+        Me.combo_unit.Size = New System.Drawing.Size(124, 26)
         Me.combo_unit.TabIndex = 8
         Me.combo_unit.Text = "Unit"
         '
@@ -317,7 +317,7 @@ Partial Class Product_Form
         Me.datagrid_product.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Honeydew
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -340,6 +340,7 @@ Partial Class Product_Form
         Me.datagrid_product.Location = New System.Drawing.Point(0, 0)
         Me.datagrid_product.Name = "datagrid_product"
         Me.datagrid_product.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.datagrid_product.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.datagrid_product.Size = New System.Drawing.Size(623, 553)
         Me.datagrid_product.TabIndex = 0
         '

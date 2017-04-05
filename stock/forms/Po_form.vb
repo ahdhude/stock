@@ -102,7 +102,7 @@ Public Class Po_form
 
     End Sub
 
-    Private Sub DataGridView1_CellValidating(sender As Object, e As DataGridViewCellValidatingEventArgs) Handles DataGridView1.CellValidating
+    Private Sub DataGridView1_CellValidating(sender As Object, e As DataGridViewCellValidatingEventArgs)
         If e.ColumnIndex = 0 Then
 
 
@@ -137,7 +137,7 @@ Public Class Po_form
 
     End Sub
 
-    Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseDoubleClick
+    Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs)
         If DataGridView1.CurrentCell.Value = Nothing Then
 
 
@@ -148,15 +148,15 @@ Public Class Po_form
         End If
     End Sub
 
-    Private Sub DataGridView1_ColumnHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.ColumnHeaderMouseDoubleClick
+    Private Sub DataGridView1_ColumnHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs)
         DataGridView1.AllowUserToAddRows = True
     End Sub
 
-    Private Sub DataGridView1_UserAddedRow(sender As Object, e As DataGridViewRowEventArgs) Handles DataGridView1.UserAddedRow
+    Private Sub DataGridView1_UserAddedRow(sender As Object, e As DataGridViewRowEventArgs)
         DataGridView1.AllowUserToAddRows = False
     End Sub
 
-    Private Sub DataGridView1_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseClick
+    Private Sub DataGridView1_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs)
         DataGridView1.CurrentRow.Selected = True
     End Sub
 
@@ -199,7 +199,7 @@ Public Class Po_form
 
 
 
-            Dim f As New Scan_form
+            Dim f As New po_scan_form
 
 
             f.Show()
@@ -498,7 +498,7 @@ Public Class Po_form
         Dim con As New SqlClient.SqlConnection(Myconnection.MYconnectionstring)
         con.Open()
         Dim dr As SqlClient.SqlDataReader
-        Dim cmd As New SqlClient.SqlCommand("SELECT * FROM  GRF WHERE Grf_id = (SELECT MAX(po_id) FROM PurchaseOrder)", con)
+        Dim cmd As New SqlClient.SqlCommand("SELECT * FROM  PO WHERE PO_id = (SELECT MAX(po_id) FROM PurchaseOrder)", con)
 
         dr = cmd.ExecuteReader
 
@@ -768,7 +768,6 @@ Public Class Po_form
 
 
     End Sub
-
 
 
 End Class

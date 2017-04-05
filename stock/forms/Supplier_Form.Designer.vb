@@ -22,8 +22,8 @@ Partial Class Supplier_Form
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.BunifuCustomLabel1 = New ns1.BunifuCustomLabel()
         Me.Panel2 = New System.Windows.Forms.Panel()
@@ -45,17 +45,20 @@ Partial Class Supplier_Form
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.BunifuCustomLabel1)
+        Me.Panel1.Controls.Add(Me.btn_add)
+        Me.Panel1.Controls.Add(Me.Btn_delete)
+        Me.Panel1.Controls.Add(Me.btn_update)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(940, 48)
+        Me.Panel1.Size = New System.Drawing.Size(789, 48)
         Me.Panel1.TabIndex = 0
         '
         'BunifuCustomLabel1
         '
         Me.BunifuCustomLabel1.AutoSize = True
         Me.BunifuCustomLabel1.Font = New System.Drawing.Font("Calibri", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(397, 11)
+        Me.BunifuCustomLabel1.Location = New System.Drawing.Point(12, 9)
         Me.BunifuCustomLabel1.Name = "BunifuCustomLabel1"
         Me.BunifuCustomLabel1.Size = New System.Drawing.Size(95, 26)
         Me.BunifuCustomLabel1.TabIndex = 20
@@ -65,15 +68,12 @@ Partial Class Supplier_Form
         '
         Me.Panel2.Controls.Add(Me.txtbox_supplier_dhiv_name)
         Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.Btn_delete)
-        Me.Panel2.Controls.Add(Me.btn_update)
-        Me.Panel2.Controls.Add(Me.btn_add)
         Me.Panel2.Controls.Add(Me.txtbox_details)
         Me.Panel2.Controls.Add(Me.txtbox_eng_name)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(0, 48)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(338, 551)
+        Me.Panel2.Size = New System.Drawing.Size(338, 573)
         Me.Panel2.TabIndex = 1
         '
         'txtbox_supplier_dhiv_name
@@ -127,13 +127,13 @@ Partial Class Supplier_Form
         Me.Btn_delete.IconVisible = True
         Me.Btn_delete.IconZoom = 90.0R
         Me.Btn_delete.IsTab = False
-        Me.Btn_delete.Location = New System.Drawing.Point(35, 379)
+        Me.Btn_delete.Location = New System.Drawing.Point(394, 5)
         Me.Btn_delete.Name = "Btn_delete"
         Me.Btn_delete.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.Btn_delete.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
         Me.Btn_delete.OnHoverTextColor = System.Drawing.Color.White
         Me.Btn_delete.selected = False
-        Me.Btn_delete.Size = New System.Drawing.Size(230, 30)
+        Me.Btn_delete.Size = New System.Drawing.Size(70, 30)
         Me.Btn_delete.TabIndex = 16
         Me.Btn_delete.Text = "Delete"
         Me.Btn_delete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -161,13 +161,13 @@ Partial Class Supplier_Form
         Me.btn_update.IconVisible = True
         Me.btn_update.IconZoom = 90.0R
         Me.btn_update.IsTab = False
-        Me.btn_update.Location = New System.Drawing.Point(33, 330)
+        Me.btn_update.Location = New System.Drawing.Point(319, 4)
         Me.btn_update.Name = "btn_update"
         Me.btn_update.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.btn_update.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
         Me.btn_update.OnHoverTextColor = System.Drawing.Color.White
         Me.btn_update.selected = False
-        Me.btn_update.Size = New System.Drawing.Size(232, 32)
+        Me.btn_update.Size = New System.Drawing.Size(69, 32)
         Me.btn_update.TabIndex = 17
         Me.btn_update.Text = "Update"
         Me.btn_update.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -195,13 +195,13 @@ Partial Class Supplier_Form
         Me.btn_add.IconVisible = True
         Me.btn_add.IconZoom = 90.0R
         Me.btn_add.IsTab = False
-        Me.btn_add.Location = New System.Drawing.Point(33, 280)
+        Me.btn_add.Location = New System.Drawing.Point(240, 4)
         Me.btn_add.Name = "btn_add"
         Me.btn_add.Normalcolor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(139, Byte), Integer), CType(CType(87, Byte), Integer))
         Me.btn_add.OnHovercolor = System.Drawing.Color.FromArgb(CType(CType(36, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(77, Byte), Integer))
         Me.btn_add.OnHoverTextColor = System.Drawing.Color.White
         Me.btn_add.selected = False
-        Me.btn_add.Size = New System.Drawing.Size(232, 33)
+        Me.btn_add.Size = New System.Drawing.Size(73, 33)
         Me.btn_add.TabIndex = 18
         Me.btn_add.Text = "Add"
         Me.btn_add.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -252,24 +252,24 @@ Partial Class Supplier_Form
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(338, 48)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(602, 551)
+        Me.Panel3.Size = New System.Drawing.Size(451, 573)
         Me.Panel3.TabIndex = 2
         '
         'DataGrid_supplier
         '
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.DataGrid_supplier.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.DataGrid_supplier.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGrid_supplier.BackgroundColor = System.Drawing.Color.Gainsboro
         Me.DataGrid_supplier.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGrid_supplier.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.SeaGreen
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.WhiteSmoke
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGrid_supplier.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.SeaGreen
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGrid_supplier.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGrid_supplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGrid_supplier.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGrid_supplier.DoubleBuffered = True
@@ -279,14 +279,14 @@ Partial Class Supplier_Form
         Me.DataGrid_supplier.Location = New System.Drawing.Point(0, 0)
         Me.DataGrid_supplier.Name = "DataGrid_supplier"
         Me.DataGrid_supplier.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.DataGrid_supplier.Size = New System.Drawing.Size(602, 551)
+        Me.DataGrid_supplier.Size = New System.Drawing.Size(451, 573)
         Me.DataGrid_supplier.TabIndex = 1
         '
         'Supplier_Form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(940, 599)
+        Me.ClientSize = New System.Drawing.Size(789, 621)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -305,14 +305,14 @@ Partial Class Supplier_Form
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents Panel3 As Panel
     Friend WithEvents Btn_delete As ns1.BunifuFlatButton
     Friend WithEvents btn_update As ns1.BunifuFlatButton
     Friend WithEvents btn_add As ns1.BunifuFlatButton
     Friend WithEvents txtbox_details As ns1.BunifuMaterialTextbox
     Friend WithEvents txtbox_eng_name As ns1.BunifuMaterialTextbox
     Friend WithEvents BunifuCustomLabel1 As ns1.BunifuCustomLabel
-    Friend WithEvents DataGrid_supplier As ns1.BunifuCustomDataGrid
     Friend WithEvents Label1 As Label
     Friend WithEvents txtbox_supplier_dhiv_name As ns1.BunifuMaterialTextbox
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents DataGrid_supplier As ns1.BunifuCustomDataGrid
 End Class
